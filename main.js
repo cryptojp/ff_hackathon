@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
+var path = require('path')
 app.commandLine.appendSwitch('ignore-certificate-errors', 'true');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -8,7 +9,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 600, icon: path.join(__dirname + 'cc-logo-vert.png')})
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')

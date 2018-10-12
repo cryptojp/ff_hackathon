@@ -13,29 +13,617 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-app="ccc-app" style="background-color: black;">
-    <div ng-controller="DataController" class="container-fluid">
-      <div class="col-3">
-        <div class="card text-white bg-dark">
-          <div class="card-header">Latest CryptoNews</div>
-          <div class="card-body">
-            <h5 class="card-title">Primary card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <header id="topnav">
+      <div class="topbar-main">
+        <div class="container-fluid">
+          <div class="logo">
+            <a href="index.html" class="logo">
+                <img src="https://www.cryptocompare.com/media/20567/cc-logo-vert.png" alt="" height="26" class="logo-small">
+            </a>
           </div>
-        </div>
-      </div>
+          <div class="menu-extras topbar-custom">
+            <ul class="list-unstyled topbar-right-menu float-right mb-0">
+              <li class="menu-item">
+                 <a class="navbar-toggle nav-link">
+                   <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+              </li>
+              <li class="hide-phone">
+                <form class="app-search">
+                  <input type="text" placeholder="Search..." class="form-control">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+              </li>
+              <li>
+                <div class="notification-box">
+                  <ul class="list-inline mb-0">
+                    <li>
+                        <a href="javascript:void(0);" class="right-bar-toggle">
+                            <i class="mdi mdi-bell-outline noti-icon"></i>
+                        </a>
+                        <div class="noti-dot">
+                            <span class="dot"></span>
+                            <span class="pulse"></span>
+                        </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="dropdown notification-list">
+                  <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <i class="ti-user m-r-5"></i> Profile
+                      </a>
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <i class="ti-settings m-r-5"></i> Settings
+                      </a>
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <i class="ti-lock m-r-5"></i> Lock screen
+                      </a>
+                      <a href="javascript:void(0);" class="dropdown-item notify-item">
+                          <i class="ti-power-off m-r-5"></i> Logout
+                      </a>
+                  </div>
+              </li>
+            </ul>
+          </div>
+        </div> 
+        <div class="navbar-custom active">
+            <div class="container-fluid">
+                <div id="navigation" class="active">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+                        <li class="has-submenu active">
+                            <a href="index.html"><i class="mdi mdi-view-dashboard"></i>
+                              <span>CryptoCompare 
+                                  <img height="30" src="https://www.cryptocompare.com/media/20567/cc-logo-vert.png" alt="user" class="rounded-circle">
+                              </span> 
+                            </a>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#"><i class="mdi mdi-texture"></i><span> Coins </span> </a>
+                            <ul class="submenu">
+                                <li><a href="form-elements.html">Bitcoin</a></li>
+                                <li><a href="form-advanced.html">Ethereum</a></li>
+                                <li><a href="form-xeditable.html">Monero</a></li>
+                                <li><a href="form-validation.html">Ripple</a></li>
+                                <li><a href="form-wizard.html">Tezoz</a></li>
+                                <li><a href="form-fileupload.html">Cardona</a></li>
+                                <li><a href="form-wysiwig.html">Bitcoin Cash</a></li>
+                            </ul>
+                        </li>
 
-      <div class="col-6">
-        <canvas id="myChart" width="400" height="400"></canvas>
-      </div>
+                        <li class="has-submenu">
+                            <a href="#"><i class="mdi mdi-view-list"></i> <span> Tables </span> </a>
+                            <ul class="submenu">
+                                <li><a href="tables-basic.html">Basic Tables</a></li>
+                                <li><a href="tables-datatable.html">Data Table</a></li>
+                                <li><a href="tables-responsive.html">Responsive Table</a></li>
+                                <li><a href="tables-editable.html">Editable Table</a></li>
+                                <li><a href="tables-tablesaw.html">Tablesaw Table</a></li>
+                            </ul>
+                        </li>
 
-      <div class="card text-white bg-dark">
-        <div class="card-header">Order Book</div>
-        <div class="card-body text-dark">
-          <h5 class="card-title">Primary card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <li class="has-submenu">
+                            <a href="#"><i class="mdi mdi-chart-donut-variant"></i><span> Charts </span> </a>
+                            <ul class="submenu">
+                                <li><a href="chart-flot.html">Flot Chart</a></li>
+                                <li><a href="chart-morris.html">Morris Chart</a></li>
+                                <li><a href="chart-chartist.html">Chartist Charts</a></li>
+                                <li><a href="chart-chartjs.html">Chartjs Chart</a></li>
+                                <li><a href="chart-other.html">Other Chart</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+
+    <div class="wrapper" ng-controller="DataController">
+
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="page-title">Dashboard</h4>
+                </div>
+            </div>
+            <!-- end page title end breadcrumb -->
+
+
+            <div class="row">
+                
+                <div class="col-xl-4">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+    
+                        <h4 class="header-title mt-0 m-b-30">Latest News</h4>
+                        <div class="inbox-widget nicescroll" style="height: 315px;">
+                            <a href="#">
+                                <div class="inbox-item">
+                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="rounded-circle" alt=""></div>
+                                    <p class="inbox-item-author">Chadengle</p>
+                                    <p class="inbox-item-text">Hey! there I'm available...</p>
+                                    <p class="inbox-item-date">13:40 PM</p>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="inbox-item">
+                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="rounded-circle" alt=""></div>
+                                    <p class="inbox-item-author">Tomaslau</p>
+                                    <p class="inbox-item-text">I've finished it! See you so...</p>
+                                    <p class="inbox-item-date">13:34 PM</p>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="inbox-item">
+                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="rounded-circle" alt=""></div>
+                                    <p class="inbox-item-author">Stillnotdavid</p>
+                                    <p class="inbox-item-text">This theme is awesome!</p>
+                                    <p class="inbox-item-date">13:17 PM</p>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="inbox-item">
+                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="rounded-circle" alt=""></div>
+                                    <p class="inbox-item-author">Kurafire</p>
+                                    <p class="inbox-item-text">Nice to meet you</p>
+                                    <p class="inbox-item-date">12:20 PM</p>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="inbox-item">
+                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="rounded-circle" alt=""></div>
+                                    <p class="inbox-item-author">Shahedk</p>
+                                    <p class="inbox-item-text">Hey! there I'm available...</p>
+                                    <p class="inbox-item-date">10:15 AM</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+    
+                <div class="col-xl-8">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+    
+                        <h4 class="header-title mt-0 m-b-30">Latest Projects</h4>
+    
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Project Name</th>
+                                    <th>Start Date</th>
+                                    <th>Due Date</th>
+                                    <th>Status</th>
+                                    <th>Assign</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Adminto Admin v1</td>
+                                    <td>01/01/2017</td>
+                                    <td>26/04/2017</td>
+                                    <td><span class="badge badge-danger">Released</span></td>
+                                    <td>Coderthemes</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Adminto Frontend v1</td>
+                                    <td>01/01/2017</td>
+                                    <td>26/04/2017</td>
+                                    <td><span class="badge badge-success">Released</span></td>
+                                    <td>Adminto admin</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Adminto Admin v1.1</td>
+                                    <td>01/05/2017</td>
+                                    <td>10/05/2017</td>
+                                    <td><span class="badge badge-pink">Pending</span></td>
+                                    <td>Coderthemes</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Adminto Frontend v1.1</td>
+                                    <td>01/01/2017</td>
+                                    <td>31/05/2017</td>
+                                    <td><span class="badge badge-purple">Work in Progress</span>
+                                    </td>
+                                    <td>Adminto admin</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Adminto Admin v1.3</td>
+                                    <td>01/01/2017</td>
+                                    <td>31/05/2017</td>
+                                    <td><span class="badge badge-warning">Coming soon</span></td>
+                                    <td>Coderthemes</td>
+                                </tr>
+    
+                                <tr>
+                                    <td>6</td>
+                                    <td>Adminto Admin v1.3</td>
+                                    <td>01/01/2017</td>
+                                    <td>31/05/2017</td>
+                                    <td><span class="badge badge-primary">Coming soon</span></td>
+                                    <td>Adminto admin</td>
+                                </tr>
+    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+                
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+
+                        <h4 class="header-title mt-0 m-b-30">Total Revenue</h4>
+
+                        <div class="widget-chart-1">
+                            <div class="widget-chart-box-1">
+                                <div style="display:inline;width:80px;height:80px;"><canvas width="80" height="80"></canvas><input data-plugin="knob" data-width="80" data-height="80" data-fgcolor="#f05050 " data-bgcolor="#F9B9B9" value="58" data-skin="tron" data-angleoffset="180" data-readonly="true" data-thickness=".15" readonly="readonly" style="width: 44px; height: 26px; position: absolute; vertical-align: middle; margin-top: 26px; margin-left: -62px; border: 0px; background: none; font: bold 16px Arial; text-align: center; color: rgb(240, 80, 80); padding: 0px; -webkit-appearance: none;"></div>
+                            </div>
+
+                            <div class="widget-detail-1">
+                                <h2 class="p-t-10 mb-0"> 256 </h2>
+                                <p class="text-muted m-b-10">Revenue today</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+
+                        <h4 class="header-title mt-0 m-b-30">Sales Analytics</h4>
+
+                        <div class="widget-box-2">
+                            <div class="widget-detail-2">
+                                <span class="badge badge-success badge-pill pull-left m-t-20">32% <i class="mdi mdi-trending-up"></i> </span>
+                                <h2 class="mb-0"> 8451 </h2>
+                                <p class="text-muted m-b-25">Revenue today</p>
+                            </div>
+                            <div class="progress progress-bar-success-alt progress-sm mb-0">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;">
+                                    <span class="sr-only">77% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+
+                        <h4 class="header-title mt-0 m-b-30">Statistics</h4>
+
+                        <div class="widget-chart-1">
+                            <div class="widget-chart-box-1">
+                                <div style="display:inline;width:80px;height:80px;"><canvas width="80" height="80"></canvas><input data-plugin="knob" data-width="80" data-height="80" data-fgcolor="#ffbd4a" data-bgcolor="#FFE6BA" value="80" data-skin="tron" data-angleoffset="180" data-readonly="true" data-thickness=".15" readonly="readonly" style="width: 44px; height: 26px; position: absolute; vertical-align: middle; margin-top: 26px; margin-left: -62px; border: 0px; background: none; font: bold 16px Arial; text-align: center; color: rgb(255, 189, 74); padding: 0px; -webkit-appearance: none;"></div>
+                            </div>
+                            <div class="widget-detail-1">
+                                <h2 class="p-t-10 mb-0"> 4569 </h2>
+                                <p class="text-muted m-b-10">Revenue today</p>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box">
+                        <h4 class="header-title mt-0 m-b-30">Exchange volume by BTC/USD</h4>
+                        <div class="widget-box-2">
+                          <canvas id="myChart" width="350" height="350"></canvas>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+
+                        <h4 class="header-title mt-0">Daily Sales</h4>
+
+                        <div class="widget-chart text-center">
+                            <div id="morris-donut-example" style="height: 245px;"><svg height="245" version="1.1" width="153" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.796875px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#ff8acc" d="M76.5,166.83333333333334A44.333333333333336,44.333333333333336,0,0,0,118.75432236223605,135.91702970678247" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#ff8acc" stroke="#2f3e47" d="M76.5,169.83333333333334A47.333333333333336,47.333333333333336,0,0,0,121.61363740930464,136.82494901024896L135.11595846490638,141.11234572106292A61.5,61.5,0,0,1,76.5,184Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#5b69bc" d="M118.75432236223605,135.91702970678247A44.333333333333336,44.333333333333336,0,0,0,36.77281342009758,102.82272653820999" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#5b69bc" stroke="#2f3e47" d="M121.61363740930464,136.82494901024896A47.333333333333336,47.333333333333336,0,0,0,34.084507561307184,101.49118171748736L16.909220130146366,92.984089807315A66.5,66.5,0,0,1,139.88148354335408,142.62554456017372Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#35b8e0" d="M36.77281342009758,102.82272653820999A44.333333333333336,44.333333333333336,0,0,0,76.48607227279824,166.83333114557104" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#35b8e0" stroke="#2f3e47" d="M34.084507561307184,101.49118171748736A47.333333333333336,47.333333333333336,0,0,0,76.48512979501766,169.83333099752699L76.4806792054983,183.99999696509667A61.5,61.5,0,0,1,21.389729894797014,95.20333117518605Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="76.5" y="112.5" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="15px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 15px; font-weight: 800;" font-weight="800" transform="matrix(0.6925,0,0,0.6925,23.5212,37.976)" stroke-width="1.4440397869674182"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">In-Store Sales</tspan></text><text x="76.5" y="132.5" text-anchor="middle" font-family="&quot;Arial&quot;" font-size="14px" stroke="none" fill="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: Arial; font-size: 14px;" transform="matrix(0.9236,0,0,0.9236,5.8509,9.5104)" stroke-width="1.0827067669172932"><tspan dy="5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30</tspan></text></svg></div>
+                            <ul class="list-inline chart-detail-list mb-0">
+                                <li class="list-inline-item">
+                                    <h5 style="color: #ff8acc;"><i class="fa fa-circle m-r-5"></i>Series A</h5>
+                                </li>
+                                <li class="list-inline-item">
+                                    <h5 style="color: #5b69bc;"><i class="fa fa-circle m-r-5"></i>Series B</h5>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-4">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+                        <h4 class="header-title mt-0">Statistics</h4>
+                        <div id="morris-bar-example" style="height: 280px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="280" version="1.1" width="153" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.890625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="32.84375" y="241" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,241.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="187" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">25</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,187.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="133" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,133.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="79" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">75</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,79.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,25.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="121.11197916666667" y="253.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2015</tspan></text><rect x="50.854166666666664" y="79" width="2.7552083333333335" height="162" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="64.63020833333333" y="150.28" width="2.7552083333333335" height="90.72" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="78.40625" y="79" width="2.7552083333333335" height="162" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="92.18229166666667" y="158.92" width="2.7552083333333335" height="82.08000000000001" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="105.95833333333333" y="199.95999999999998" width="2.7552083333333335" height="41.04000000000002" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="119.734375" y="40.119999999999976" width="2.7552083333333335" height="200.88000000000002" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect></svg><div class="morris-hover morris-default-style" style="display: none;"></div></div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-4">
+                    <div class="card-box">
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+                        <h4 class="header-title mt-0">Total Revenue</h4>
+                        <div id="morris-line-example" style="height: 280px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="280" version="1.1" width="153" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.0625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="32.84375" y="241" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,241.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="187" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">25</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,187.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="133" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,133.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="79" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">75</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,79.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,25.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="68.97367520531873" y="253.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2010</tspan></text><path fill="none" stroke="#188ae2" d="M45.34375,241C48.30153133554947,214,54.21709400664842,154.6295485636115,57.17487534219789,133C60.124575307978105,111.4295485636115,66.02397523953852,68.19999999999999,68.97367520531873,68.19999999999999C71.92337517109894,68.19999999999999,77.82277510265936,114.1,80.77247506843958,133C83.72217503421979,151.9,89.62157496578021,216.70369357045143,92.57127493156042,219.4C95.5290562671099,222.10369357045144,101.44461893820885,165.41477428180573,104.40240027375832,154.6C107.35210023953853,143.81477428180574,113.25150017109895,141.1,116.20120013687917,133C119.15090010265938,124.9,125.05030003421979,100.6,128,89.79999999999998" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#10c469" d="M45.34375,133C48.30153133554947,119.5,54.21709400664842,73.59261285909713,57.17487534219789,79C60.124575307978105,84.39261285909713,66.02397523953852,169.45,68.97367520531873,176.2C71.92337517109894,182.95,77.82277510265936,145.15,80.77247506843958,133C83.72217503421979,120.85000000000001,89.62157496578021,79,92.57127493156042,79C95.5290562671099,79,101.44461893820885,133,104.40240027375832,133C107.35210023953853,133,113.25150017109895,92.5,116.20120013687917,79C119.15090010265938,65.50000000000001,125.05030003421979,38.5,128,25" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="45.34375" cy="241" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="57.17487534219789" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="68.97367520531873" cy="68.19999999999999" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="80.77247506843958" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="92.57127493156042" cy="219.4" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="104.40240027375832" cy="154.6" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="116.20120013687917" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="128" cy="89.79999999999998" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="45.34375" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="57.17487534219789" cy="79" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="68.97367520531873" cy="176.2" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="80.77247506843958" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="92.57127493156042" cy="79" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="104.40240027375832" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="116.20120013687917" cy="79" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="128" cy="25" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="display: none;"></div></div>
+                    </div>
+                </div><!-- end col -->
+
+            </div>
+            <!-- end row -->
+
+
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div>
+                            <img src="assets/images/users/avatar-3.jpg" class="img-responsive rounded-circle" alt="user">
+                            <div class="wid-u-info">
+                                <h5 class="mt-0 m-b-5">Chadengle</h5>
+                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
+                                <small class="text-warning"><b>Admin</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div>
+                            <img src="assets/images/users/avatar-2.jpg" class="img-responsive rounded-circle" alt="user">
+                            <div class="wid-u-info">
+                                <h5 class="mt-0 m-b-5"> Michael Zenaty</h5>
+                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
+                                <small class="text-custom"><b>Support Lead</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div>
+                            <img src="assets/images/users/avatar-1.jpg" class="img-responsive rounded-circle" alt="user">
+                            <div class="wid-u-info">
+                                <h5 class="mt-0 m-b-5">Stillnotdavid</h5>
+                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
+                                <small class="text-success"><b>Designer</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div>
+                            <img src="assets/images/users/avatar-10.jpg" class="img-responsive rounded-circle" alt="user">
+                            <div class="wid-u-info">
+                                <h5 class="mt-0 m-b-5">Tomaslau</h5>
+                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
+                                <small class="text-info"><b>Developer</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col -->
+            </div>
+            <!-- end row -->
+
+        </div> <!-- end container -->
+
+
+        <!-- Right Sidebar -->
+        <div class="side-bar right-bar">
+            <a href="javascript:void(0);" class="right-bar-toggle">
+                <i class="mdi mdi-close-circle-outline"></i>
+            </a>
+            <h4 class="">Notifications</h4>
+            <div class="notification-list nicescroll">
+                <ul class="list-group list-no-border user-list">
+                    <li class="list-group-item">
+                        <a href="#" class="user-list-item">
+                            <div class="avatar">
+                                <img src="assets/images/users/avatar-2.jpg" alt="">
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">Michael Zenaty</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">2 hours ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="user-list-item">
+                            <div class="icon bg-info">
+                                <i class="mdi mdi-account"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">New Signup</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">5 hours ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="user-list-item">
+                            <div class="icon bg-pink">
+                                <i class="mdi mdi-comment"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">New Message received</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">1 day ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="#" class="user-list-item">
+                            <div class="avatar">
+                                <img src="assets/images/users/avatar-3.jpg" alt="">
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">James Anderson</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">2 days ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="#" class="user-list-item">
+                            <div class="icon bg-warning">
+                                <i class="mdi mdi-settings"></i>
+                            </div>
+                            <div class="user-desc">
+                                <span class="name">Settings</span>
+                                <span class="desc">There are new settings available</span>
+                                <span class="time">1 day ago</span>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
-      </div>
+        <!-- /Right-bar -->
+
     </div>
+
     <script>
       angular.module("ccc-app", [])
       .controller("DataController", ["$scope", "$http", function($scope, $http) {
@@ -56,16 +644,35 @@
     </script>
     <script>
       var ctx = document.getElementById("myChart");
-      var data = {
-        datasets: [{
-            data: [10, 20, 30]
-        }]
+      var chartData = {
+        datasets: [{ data: []}],
+        labels: []
       }
 
-      var myPieChart = new Chart(ctx, {
-        type: 'pie',
-        data: data,
-      })
+      var getPriceData = function(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            let res = JSON.parse(xhttp.responseText);
+            let dataArray = res.Data;
+              for (let i=0; i < dataArray.length; i++){
+                chartData.datasets[0].data.push(dataArray[i].volume24h);
+                chartData.labels.push(dataArray[i].exchange);
+              }
+            }
+            console.log(chartData);
+            buildchart(chartData);
+          };
+          xhttp.open("GET", "https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD", true);
+          xhttp.send();
+      }
+      let buildchart = function(data){
+        var myPieChart = new Chart(ctx, {
+          type: 'pie',
+          data: data,
+        });
+      }
+      getPriceData();
       
     
     </script>
