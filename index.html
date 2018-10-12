@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>CryptoCompare Desktop App</title>
+    <title>CryptoCompare Terminal</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
@@ -131,139 +132,61 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="page-title">Dashboard</h4>
+                    <h4 class="page-title"></h4>
                 </div>
             </div>
-            <!-- end page title end breadcrumb -->
 
             
             <div class="row">
                 <!---   put block expoloere data here -->
-                <div class="col-xl-6">
-                    <div class="card-box">
-                        <div class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                <div class="col-xl-4" >
+                    <div class="card text-white text-center bg-dark">
+                        <div class="card-header">{{ title }}</div>
+                        <div class=" p-3 bg-dark rounded box-shadow">
+                            <div class="media text-muted pt-3">
+                              <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://www.cryptocompare.com/media/33187912/header.jpg?anchor=center&mode=crop&width=300&height=300&rnd=131825149810000000" data-holder-rendered="true">
+                              <p class="media-body pb-3 mb-0 small lh-125">
+                                <strong class="d-block text-gray-dark">CryptoCompare</strong>
+                                Dear users, it’s with great pleasure that we invite you to attend the MJAC blockchain conference. Hosting the biggest and brightest blockchain leaders, t....
+                                <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
+                              </p>
                             </div>
-                        </div>
-    
-                        <h4 class="header-title mt-0 m-b-30">{{ title }}</h4>
-                        <div class="inbox-widget nicescroll" style="height: 315px;">
-                            <tbody id="news">
-
-                            </tbody>
-                            <a href="#" ng-repeat="(key, newsObj) in newsArticlesFromApi">
-                              <h1>ssds</h1>
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="rounded-circle" alt=""></div>
-                                    <p class="inbox-item-author">{{newsObj.title}}</p>
-                                    <p class="inbox-item-text">{{newsObj.body}}</p>
-                                    <p class="inbox-item-date">13:40 PM</p>
-                                </div>
-                            </a>
+                            <div class="media text-muted pt-3">
+                              <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://images.cryptocompare.com/news/coinspeaker/9pdojhC4VDc.jpeg" data-holder-rendered="true">
+                              <p class="media-body pb-3 mb-0 small lh-125">
+                                <strong class="d-block text-gray-dark">CoinSpeaker</strong>
+                                Coinbase may have announced plans to list hundreds of new assets over the coming months and years, but that doesn’t mean that the San Francisco-based cryptocurrency exchange has lost its status as crypto-token....
+                                <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
+                              </p>
+                            </div>
+                            <div class="media text-muted pt-3">
+                                <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://images.cryptocompare.com/news/cointelegraph/e98A0M80000.jpeg" data-holder-rendered="true">
+                                <p class="media-body pb-3 mb-0 small lh-125">
+                                  <strong class="d-block text-gray-dark">cointelegraph</strong>
+                                  US senator and potential presidential contender who suggested cryptocurrency “hurt” American......
+                                  <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
+                                </p>
+                              </div>
+                            
+                            <small class="d-block text-right mt-3">
+                              <a href="#">Biew All News</a>
+                            </small>
                         </div>
                     </div>
                 </div><!-- end col -->
     
-                <div class="col-xl-6">
-                    <div class="card-box">
-                        <div class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                            </div>
-                        </div>
-    
-                        <h4 class="header-title mt-0 m-b-30">Latest Projects</h4>
-    
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Project Name</th>
-                                    <th>Start Date</th>
-                                    <th>Due Date</th>
-                                    <th>Status</th>
-                                    <th>Assign</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Adminto Admin v1</td>
-                                    <td>01/01/2017</td>
-                                    <td>26/04/2017</td>
-                                    <td><span class="badge badge-danger">Released</span></td>
-                                    <td>Coderthemes</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Adminto Frontend v1</td>
-                                    <td>01/01/2017</td>
-                                    <td>26/04/2017</td>
-                                    <td><span class="badge badge-success">Released</span></td>
-                                    <td>Adminto admin</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Adminto Admin v1.1</td>
-                                    <td>01/05/2017</td>
-                                    <td>10/05/2017</td>
-                                    <td><span class="badge badge-pink">Pending</span></td>
-                                    <td>Coderthemes</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Adminto Frontend v1.1</td>
-                                    <td>01/01/2017</td>
-                                    <td>31/05/2017</td>
-                                    <td><span class="badge badge-purple">Work in Progress</span>
-                                    </td>
-                                    <td>Adminto admin</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Adminto Admin v1.3</td>
-                                    <td>01/01/2017</td>
-                                    <td>31/05/2017</td>
-                                    <td><span class="badge badge-warning">Coming soon</span></td>
-                                    <td>Coderthemes</td>
-                                </tr>
-    
-                                <tr>
-                                    <td>6</td>
-                                    <td>Adminto Admin v1.3</td>
-                                    <td>01/01/2017</td>
-                                    <td>31/05/2017</td>
-                                    <td><span class="badge badge-primary">Coming soon</span></td>
-                                    <td>Adminto admin</td>
-                                </tr>
-    
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="col-xl-4" style="margin-bottom:20px;">
+                    <div class="card text-white text-center bg-dark" >
+                        <div class="card-header">Order Book Data (BTC/USD)</div>
+                        <canvas id="level2chart" width="300" height="300" style="display:block; color:white;"></canvas>
                     </div>
                 </div><!-- end col -->
+                <div class="col-xl-4" style="margin-bottom:20px;">
+                  <div class="card text-white text-center bg-dark" >
+                      <div class="card-header">Trades Over Last Minute (BTC/USD)</div>
+                      <canvas id="tradechart" width="500" height="500" style="display:block"></canvas>
+                  </div>
+                </div>
                 
                 
                 <div class="col-xl-3 col-md-6">
@@ -383,32 +306,9 @@
 
                 <div class="col-xl-3 col-md-6">
                     <div class="card-box">
-                        <div class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                            </div>
-                        </div>
-
-                        <h4 class="header-title mt-0 m-b-30">Statistics</h4>
-
-                        <div class="widget-chart-1">
-                            <div class="widget-chart-box-1">
-                                <div style="display:inline;width:80px;height:80px;"><canvas width="80" height="80"></canvas><input data-plugin="knob" data-width="80" data-height="80" data-fgcolor="#ffbd4a" data-bgcolor="#FFE6BA" value="80" data-skin="tron" data-angleoffset="180" data-readonly="true" data-thickness=".15" readonly="readonly" style="width: 44px; height: 26px; position: absolute; vertical-align: middle; margin-top: 26px; margin-left: -62px; border: 0px; background: none; font: bold 16px Arial; text-align: center; color: rgb(255, 189, 74); padding: 0px; -webkit-appearance: none;"></div>
-                            </div>
-                            <div class="widget-detail-1">
-                                <h2 class="p-t-10 mb-0"> 4569 </h2>
-                                <p class="text-muted m-b-10">Revenue today</p>
-                            </div>
+                        <h4 class="header-title mt-0 m-b-30">Price 24hr BTC/USD </h4>
+                        <div class="widget-box-2">
+                          <canvas id="myCharthour" width="350" height="350"></canvas>
                         </div>
                     </div>
                 </div><!-- end col -->
@@ -425,6 +325,7 @@
             </div>
             <!-- end row -->
 
+            <!--
             <div class="row">
                 <div class="col-xl-4">
                     <div class="card-box">
@@ -433,13 +334,9 @@
                                 <i class="mdi mdi-dots-vertical"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
                             </div>
                         </div>
@@ -458,7 +355,7 @@
                             </ul>
                         </div>
                     </div>
-                </div><!-- end col -->
+                </div>
 
                 <div class="col-xl-4">
                     <div class="card-box">
@@ -467,20 +364,16 @@
                                 <i class="mdi mdi-dots-vertical"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
                             </div>
                         </div>
                         <h4 class="header-title mt-0">Statistics</h4>
                         <div id="morris-bar-example" style="height: 280px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="280" version="1.1" width="153" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.890625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="32.84375" y="241" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,241.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="187" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">25</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,187.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="133" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,133.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="79" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">75</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,79.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,25.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="121.11197916666667" y="253.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2015</tspan></text><rect x="50.854166666666664" y="79" width="2.7552083333333335" height="162" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="64.63020833333333" y="150.28" width="2.7552083333333335" height="90.72" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="78.40625" y="79" width="2.7552083333333335" height="162" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="92.18229166666667" y="158.92" width="2.7552083333333335" height="82.08000000000001" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="105.95833333333333" y="199.95999999999998" width="2.7552083333333335" height="41.04000000000002" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect><rect x="119.734375" y="40.119999999999976" width="2.7552083333333335" height="200.88000000000002" rx="0" ry="0" fill="#188ae2" stroke="none" fill-opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 1;"></rect></svg><div class="morris-hover morris-default-style" style="display: none;"></div></div>
                     </div>
-                </div><!-- end col -->
+                </div>
 
                 <div class="col-xl-4">
                     <div class="card-box">
@@ -489,23 +382,19 @@
                                 <i class="mdi mdi-dots-vertical"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
                             </div>
                         </div>
                         <h4 class="header-title mt-0">Total Revenue</h4>
                         <div id="morris-line-example" style="height: 280px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="280" version="1.1" width="153" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.0625px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text x="32.84375" y="241" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,241.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="187" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">25</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,187.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="133" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">50</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,133.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="79" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">75</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,79.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="32.84375" y="25" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">100</tspan></text><path fill="none" stroke="#2f3e47" d="M45.34375,25.5H128" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="68.97367520531873" y="253.5" text-anchor="middle" font-family="sans-serif" font-size="12px" stroke="none" fill="#98a6ad" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal" transform="matrix(1,0,0,1,0,7)"><tspan dy="4" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2010</tspan></text><path fill="none" stroke="#188ae2" d="M45.34375,241C48.30153133554947,214,54.21709400664842,154.6295485636115,57.17487534219789,133C60.124575307978105,111.4295485636115,66.02397523953852,68.19999999999999,68.97367520531873,68.19999999999999C71.92337517109894,68.19999999999999,77.82277510265936,114.1,80.77247506843958,133C83.72217503421979,151.9,89.62157496578021,216.70369357045143,92.57127493156042,219.4C95.5290562671099,222.10369357045144,101.44461893820885,165.41477428180573,104.40240027375832,154.6C107.35210023953853,143.81477428180574,113.25150017109895,141.1,116.20120013687917,133C119.15090010265938,124.9,125.05030003421979,100.6,128,89.79999999999998" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#10c469" d="M45.34375,133C48.30153133554947,119.5,54.21709400664842,73.59261285909713,57.17487534219789,79C60.124575307978105,84.39261285909713,66.02397523953852,169.45,68.97367520531873,176.2C71.92337517109894,182.95,77.82277510265936,145.15,80.77247506843958,133C83.72217503421979,120.85000000000001,89.62157496578021,79,92.57127493156042,79C95.5290562671099,79,101.44461893820885,133,104.40240027375832,133C107.35210023953853,133,113.25150017109895,92.5,116.20120013687917,79C119.15090010265938,65.50000000000001,125.05030003421979,38.5,128,25" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="45.34375" cy="241" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="57.17487534219789" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="68.97367520531873" cy="68.19999999999999" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="80.77247506843958" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="92.57127493156042" cy="219.4" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="104.40240027375832" cy="154.6" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="116.20120013687917" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="128" cy="89.79999999999998" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="45.34375" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="57.17487534219789" cy="79" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="68.97367520531873" cy="176.2" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="80.77247506843958" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="92.57127493156042" cy="79" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="104.40240027375832" cy="133" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="116.20120013687917" cy="79" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="128" cy="25" r="0" fill="#ffffff" stroke="#999999" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="display: none;"></div></div>
                     </div>
-                </div><!-- end col -->
+                </div>
 
             </div>
-            <!-- end row -->
+             end row -->
 
 
           
@@ -587,8 +476,1252 @@
         <!-- /Right-bar -->
 
     </div>
+
+    <script>
+        $scope = {}
+        var websocket = "";
+        window.charts = {}
+        
+        $scope.protocol = "03";
+        $scope.optLevel1OB = true;
+        $scope.optLevel2OB = true;
+        $scope.optLevel3OB = false;
+        $scope.optTrade = true;
+        $scope.optEndToEnd = true;
+      
+        $scope.wsURL = 'ws://ben-dev.cryptocompare.lan:8000';
+        //$scope.wsURL = 'ws://localhost:8000';
+        
+        $scope.data = [];
+        $scope.table = [];
+        $scope.trades = {
+          "Binance" : [],
+          "Bitfinex" : [],
+          "Cryptopia" : [],
+          "HitBTC" : []
+        };
+        $scope.chartTemplate = { // STYLING FOR ORDER BOOOOKS
+          type: 'line',
+          data: {
+            datasets: [
+            {
+                label: "BitfinexBids",
+                backgroundColor: 'rgba(0,255,0,0.2)',
+                borderColor: "transparent",
+                data: [{"x":5310,"y":5873.499256510001},{"x":5320,"y":5868.045472760001},{"x":5330,"y":5862.913323170001},{"x":5340,"y":5860.041007010001},{"x":5350,"y":5857.717478740001},{"x":5360,"y":5849.512402320001},{"x":5370,"y":5838.30572051},{"x":5380,"y":5817.33905384},{"x":5390,"y":5810.03364427},{"x":5400,"y":5792.14548317},{"x":5410,"y":5660.81142272},{"x":5420,"y":5643.74989328},{"x":5430,"y":5523.37359965},{"x":5440,"y":5444.686078},{"x":5450,"y":5437.990148899999},{"x":5460,"y":5391.5293329},{"x":5470,"y":5388.31084098},{"x":5480,"y":5255.87125501},{"x":5490,"y":5241.00424642},{"x":5500,"y":5230.539684439999},{"x":5510,"y":4873.460033609999},{"x":5520,"y":4863.4570824699995},{"x":5530,"y":4842.49853517},{"x":5540,"y":4832.96264026},{"x":5550,"y":4826.71456701},{"x":5560,"y":4781.3962712699995},{"x":5570,"y":4764.44401109},{"x":5580,"y":4750.73800108},{"x":5590,"y":4749.26436684},{"x":5600,"y":4735.71542564},{"x":5610,"y":4605.56168348},{"x":5620,"y":4604.23618015},{"x":5630,"y":4569.2172583500005},{"x":5640,"y":4566.1160648000005},{"x":5650,"y":4536.25905546},{"x":5660,"y":4439.94057478},{"x":5670,"y":4406.52163959},{"x":5680,"y":4391.55722325},{"x":5690,"y":4387.53733907},{"x":5700,"y":4381.1534544},{"x":5710,"y":4348.46904705},{"x":5720,"y":4340.77083845},{"x":5730,"y":4290.24510429},{"x":5740,"y":4282.22376935},{"x":5750,"y":4253.43467755},{"x":5760,"y":4171.93531499},{"x":5770,"y":4149.96683776},{"x":5780,"y":4119.67114543},{"x":5790,"y":4106.29561868},{"x":5800,"y":4097.63982467},{"x":5810,"y":3935.3027660800003},{"x":5820,"y":3913.1423566700005},{"x":5830,"y":3897.2447894500006},{"x":5840,"y":3874.2632597200004},{"x":5850,"y":3864.2509650500006},{"x":5860,"y":3779.6077676300006},{"x":5870,"y":3759.7953846100004},{"x":5880,"y":3720.8108087000005},{"x":5890,"y":3668.5830956900004},{"x":5900,"y":3626.0111008800004},{"x":5910,"y":3542.1141595300005},{"x":5920,"y":3514.7600967300004},{"x":5930,"y":3490.60490452},{"x":5940,"y":3454.6011781},{"x":5950,"y":3417.37262829},{"x":5960,"y":3346.38211274},{"x":5970,"y":3290.87718899},{"x":5980,"y":3262.0614550699997},{"x":5990,"y":3228.9058544199997},{"x":6000,"y":3218.0001158799996},{"x":6010,"y":2964.1710281099995},{"x":6020,"y":2855.8360777099997},{"x":6030,"y":2754.7234231499997},{"x":6040,"y":2690.7171805299995},{"x":6050,"y":2649.6907501799997},{"x":6060,"y":2561.8815682299996},{"x":6070,"y":2463.52705231},{"x":6080,"y":2438.3127249699996},{"x":6090,"y":2418.6688678799997},{"x":6100,"y":2320.3006640199997},{"x":6110,"y":2108.69158584},{"x":6120,"y":2020.70524998},{"x":6130,"y":1941.0856885},{"x":6140,"y":1920.72341892},{"x":6150,"y":1900.6248028900002},{"x":6160,"y":1730.9337091900002},{"x":6170,"y":1642.23644082},{"x":6180,"y":1573.25374596},{"x":6190,"y":1487.9346848},{"x":6200,"y":1452.59006997},{"x":6210,"y":1241.27530075},{"x":6220,"y":1111.88845702},{"x":6230,"y":948.79982711},{"x":6240,"y":886.6465083},{"x":6250,"y":762.43000869},{"x":6260,"y":626.6453266},{"x":6270,"y":539.29676834},{"x":6280,"y":388.88006555},{"x":6290,"y":268.50525385},{"x":6300,"y":170.35417625}]
+              },
+              {
+                label: "BitfinexAsks",
+                backgroundColor: 'rgba(255,0,0,0.2)',
+                borderColor: "transparent",
+                data: [{"x":6310,"y":8.5808863},{"x":6320,"y":74.29385672000001},{"x":6330,"y":203.66546014000002},{"x":6340,"y":293.59925756},{"x":6350,"y":363.14058555},{"x":6360,"y":458.05473693000005},{"x":6370,"y":547.23854938},{"x":6380,"y":620.88655681},{"x":6390,"y":683.4528086400001},{"x":6400,"y":772.9621817000001},{"x":6410,"y":840.7249198800001},{"x":6420,"y":895.4163025300002},{"x":6430,"y":1075.2887753700002},{"x":6440,"y":1179.42472872},{"x":6450,"y":1274.39792506},{"x":6460,"y":1339.12434857},{"x":6470,"y":1352.36924435},{"x":6480,"y":1360.47301666},{"x":6490,"y":1412.78876919},{"x":6500,"y":1482.75229865},{"x":6510,"y":1519.07191057},{"x":6520,"y":1527.30751938},{"x":6530,"y":1595.46991051},{"x":6540,"y":1613.72138922},{"x":6550,"y":1624.46057676},{"x":6560,"y":1708.4277488300002},{"x":6570,"y":1716.9075693700001},{"x":6580,"y":1748.7973651200002},{"x":6590,"y":1750.9189788800002},{"x":6600,"y":1860.20971843},{"x":6610,"y":1889.7744445600001},{"x":6620,"y":1896.7938933700002},{"x":6630,"y":1937.6039773800003},{"x":6640,"y":1960.9373383200002},{"x":6650,"y":2008.4782075400003},{"x":6660,"y":2030.3539317100003},{"x":6670,"y":2074.1908051100004},{"x":6680,"y":2142.4017924800005},{"x":6690,"y":2171.6120893000007},{"x":6700,"y":2348.8794674000005},{"x":6710,"y":2378.8017297000006},{"x":6720,"y":2447.5776746900005},{"x":6730,"y":2496.6445714100005},{"x":6740,"y":2516.2091112000003},{"x":6750,"y":2615.3308847800004},{"x":6760,"y":2649.5700736400004},{"x":6770,"y":2699.0700713600004},{"x":6780,"y":2735.1635413700005},{"x":6790,"y":2771.2350666000007},{"x":6800,"y":2842.179843430001},{"x":6810,"y":2856.1056290400006},{"x":6820,"y":2882.346369600001},{"x":6830,"y":2919.5011346800006},{"x":6840,"y":2936.5138979900007},{"x":6850,"y":3087.600221570001},{"x":6860,"y":3099.215137280001},{"x":6870,"y":3112.635977300001},{"x":6880,"y":3123.7056179700007},{"x":6890,"y":3164.962456290001},{"x":6900,"y":3285.386040600001},{"x":6910,"y":3291.047222490001},{"x":6920,"y":3298.6035322800008},{"x":6930,"y":3335.1602071000007},{"x":6940,"y":3364.2400434800006},{"x":6950,"y":3444.4615268800007},{"x":6960,"y":3577.857357210001},{"x":6970,"y":3587.617675260001},{"x":6980,"y":3613.245096390001},{"x":6990,"y":3622.2734526500008},{"x":7000,"y":3796.9928742800007},{"x":7010,"y":3798.5706596200007},{"x":7020,"y":3802.4006876700005},{"x":7030,"y":3803.7916272300004},{"x":7040,"y":3811.92415177},{"x":7050,"y":3864.7092225600004},{"x":7060,"y":3865.1921408800004},{"x":7070,"y":3902.7826529300005},{"x":7080,"y":3924.8181431300004},{"x":7090,"y":3939.6420036000004},{"x":7100,"y":4087.3345051900005},{"x":7110,"y":4087.7066558700003},{"x":7120,"y":4088.4223389700005},{"x":7130,"y":4091.4133927400003},{"x":7140,"y":4093.3556874500005},{"x":7150,"y":4351.5127330000005},{"x":7160,"y":4354.179365030001},{"x":7170,"y":4357.871189650001},{"x":7180,"y":4470.561880290001},{"x":7190,"y":4482.18993362},{"x":7200,"y":4656.33600121},{"x":7210,"y":4661.4738805},{"x":7220,"y":4662.61112891},{"x":7230,"y":4677.26355345},{"x":7240,"y":4677.841003289999},{"x":7250,"y":4892.772587789999},{"x":7260,"y":4893.5618413699995},{"x":7270,"y":4893.712295679999},{"x":7280,"y":4897.101020779999},{"x":7290,"y":4921.369919349999},{"x":7300,"y":5095.933364569999},{"x":7310,"y":5096.933364569999},{"x":7320,"y":5097.933364569999}]
+              },
+              {
+                label: "HitBTCBids",
+                backgroundColor: 'rgba(0,100,0,0.7)',
+                borderColor: "transparent",
+                data: []
+              },
+              {
+                label: "HitBTCAsks",
+                backgroundColor: 'rgba(100,0,0,0.7)',
+                borderColor: "transparent",
+                data: []
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            animation: {
+              duration : 0
+            },
+            scales: {
+              xAxes: [{
+                type: "linear",
+                ticks: {
+                  fontColor: "white"
+                
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero:true,
+                  fontColor: "white"
+                }
+              }]
+            },
+            legend:{
+              labels:{
+                fontColor: "white"
+              }
+            },
+            elements: {
+              point: {
+                radius: 0
+              },
+              line: {
+                tension: 0
+              }
+            }
+          }
+        }
+        $scope.chartTemplate2 = {
+          type: 'scatter',
+          data: {
+            datasets: [
+              {
+                label: "Bitfinex",
+                backgroundColor: 'red',
+                borderColor: "transparent",
+                data: []
+              },
+              {
+                label: "Binance",
+                backgroundColor: 'green',
+                borderColor: "transparent",
+                data: []
+              },
+              {
+                label: "Cryptopia",
+                backgroundColor: 'blue',
+                borderColor: "transparent",
+                data: []
+              },
+              {
+                label: "HitBTC",
+                backgroundColor: 'yellow',
+                borderColor: "transparent",
+                data: []
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            animation: {
+              duration : 0
+            },
+            scales: {
+              xAxes: [{
+                type: "linear",
+                display: false,
+                ticks: {
+                  fontColor: "white"
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero:true,
+                  fontColor: "white"
+                }
+              }]
+            },
+            legend:{
+              labels:{
+                fontColor: "white"
+              }
+            },
+            elements: {
+              line: {
+                tension: 0
+              }
+            }
+          }
+        }
+        $scope.chartTemplate3 = {
+          type: 'pie',
+          data: {
+            datasets: [
+              {
+                label: "Volume",
+                backgroundColor: ["red","green","blue","orange"],
+                data: [0,0,0,0]
+              }
+            ],
+            labels: ["Binance","Bitfinex","Cryptopia","HitBTC"]
+          },
+          options: {
+            responsive: true,
+            title: {
+              display: true,
+              text: "Volume over time"
+            }
+          }
+        }
+        
+        update = setInterval(function(){
+          if(window.chart != undefined){window.chart.update()}
+          if(window.chart2 != undefined){window.chart2.update()}
+          if(window.chart3 != undefined){window.chart3.update()}
+        },1000);
+        $scope.dec2hex = function(dec){
+          var hex = ("0"+Number(dec).toString(16)).substr(-2,2).toUpperCase();
+          return hex;
+        }
+        $scope.hex2dec = function(hex){
+          var dec = parseInt(hex,16);
+          return  dec;
+        }
+        $scope.arrdec2hex = function(arr){
+          var res = [];
+          for(var a in arr){
+            res.push($scope.dec2hex(arr[a]));
+          }
+          return res;
+        }
+        $scope.arrhex2dec = function(arr){
+          var res = [];
+          for(var a in arr){
+            res.push($scope.hex2dec(arr[a]));
+          }
+          return res;
+        }
+        $scope.dec2str = function(dec){
+          return String.fromCharCode(dec);
+        }
+        $scope.arrdec2str = function(arr){
+          var res = [];
+          for(var a in arr){
+            res.push($scope.dec2str(arr[a]));
+          }
+          return res.join("");
+        }
+        $scope.hex2bin = function(hex){
+          var dec = $scope.hex2dec(hex);
+          //var bin = ("00000000" + dec.toString(2)).substr(-8,8);
+          var bin = dec.toString(2);
+          return bin;
+        }
+        $scope.buf2dec = function(buf){
+          var view = new Uint8Array( buf );
+          return view.join(",").split(',');
+        }
+        $scope.str2dec = function(str){
+          dec = [];
+          for(s in str){
+            dec.push(str.charCodeAt(s));
+          }
+          return dec;
+        }
+        $scope.connect = function(){
+        
+          websocket = new WebSocket($scope.wsURL);
+          websocket.binaryType = "arraybuffer";
+          websocket.onopen	= function(evt) { $scope.onOpen(evt) };
+          websocket.onclose	= function(evt) { $scope.onClose(evt) };
+          websocket.onmessage	= function(evt) { $scope.onMessage(evt.data) };
+          websocket.onerror	= function(evt) { $scope.onError(evt) };
+        }
+        $scope.disconnect = function(){
+          close = {};
+          close.hexArray = ["CC", "13", "00"];
+          close.decArray = $scope.arrhex2dec(close.hexArray);
+          close.uint8Array = Uint8Array.from(close.decArray);
+          close.type = "Close";
+          $scope.sendMessage(close);
+          websocket.close();
+        }
+        $scope.sendMessage = function(message){
+          if($scope.logging){console.log(message)}
+          websocket.send(message.uint8Array);
+        }
+        $scope.onOpen = function(evt){
+          console.log("CONNECTED to " + $scope.wsURL);
+          hello = {};
+          hello.hexArray = ["CC", "C0", "FF", "EE", $scope.protocol, "00"];
+          hello.decArray = $scope.arrhex2dec(hello.hexArray);
+          hello.uint8Array = Uint8Array.from(hello.decArray);
+          hello.type = "Hello";
+          $scope.hello = hello;
+          
+          $scope.sendMessage(hello);
+        }
+        $scope.onClose = function(evt){
+          console.log("DISCONNECTED - " + evt.code);
+        }
+        $scope.onMessage = function(data){
+          var dec = $scope.buf2dec(data);
+          
+          var messages = [];
+          
+          var end = dec.length;
+          for(var i = dec.length - 1; i >= 0; i--){
+            //If CC
+            if(dec[i] == "204"){
+              //If null before or start
+              if(dec[i-1] == "0" || (i) == 0){
+                //If not length byte
+                if(
+                  //Capabilities
+                  !(dec[i-3] == "204" && dec[i-2] == "16") &&
+                  //Data
+                  !(dec[i-3] == "204" && dec[i-2] == "20") &&
+                  //Snapshot
+                  !(dec[i-3] == "204" && dec[i-2] == "21") &&
+                  !(dec[i-4] == "204" && dec[i-3] == "21")
+                ){
+                  var trailingData = data.slice(i,end);
+                  messages.push(trailingData);
+                  end = i;
+                }
+              }
+            }		
+          }
+          
+          messages.reverse();
+          for(var m in messages){
+            $scope.parseMessage(messages[m]);
+          }
+        }		
+          
+        $scope.parseMessage = function(data){
+            var message = {};
+            message.decArray = $scope.buf2dec(data);
+            message.hexArray = $scope.arrdec2hex(message.decArray);
+            message.uint8Array = Uint8Array.from(message.hexArray);
+            var types = {
+              "10" : "Capabilities",
+              "11" : "Subscribe",
+              "12" : "Live",
+              "13" : "Close",
+              "14" : "Data",
+              "15" : "Snapshot",
+              "16" : "Refresh"
+            }
+            message.type = types[message.hexArray[1]];
+            switch(message.type){
+              case "Capabilities":
+                message = $scope.parseCapabilities(message);
+                var subscribe = $scope.buildSubscribeMessage();
+                $scope.sendMessage(subscribe);
+                break;
+              case "Live":
+                $scope.live = message;
+                break;
+              case "Close":
+                $scope.close = message;
+                $scope.disconnect();
+                break;
+              case "Data":
+                $scope.parseData(message);
+                break;
+              case "Snapshot":
+                $scope.parseData(message);
+                break;
+              case "Refresh":
+                console.log("Refresh");
+                console.log(message);
+                break;
+              case undefined:
+                console.log("Undefined message")
+                console.log(message);
+                break;
+            }
+            if($scope.messagelog){console.log(message)}
+        }
+        $scope.onError = function(evt){
+          console.error('ERR: ' + evt + ' ' + evt.data);
+        }
+        $scope.parseCapabilities = function(capabilities){
+          var length = $scope.hex2dec(capabilities.hexArray[2] + capabilities.hexArray[3]);
+          capabilities.length = length;
+          capabilities.coinPairs = [];
+          for(var h = 0; h < capabilities.hexArray.length; h++){
+            h = Number(h)
+            if(capabilities.hexArray[h] == "18"){
+              var coinPairLength = $scope.hex2dec(capabilities.hexArray[h+1]);
+              var coinPairHex = capabilities.hexArray.slice(h+2,h+2+coinPairLength);
+              var coinPairDec = $scope.arrhex2dec(coinPairHex);
+              var coinPair = $scope.arrdec2str(coinPairDec);
+              capabilities.coinPairs.push(coinPair);
+              h = h + 2 + coinPairLength -1;
+            }
+            if(capabilities.hexArray[h] == "19"){
+              var bitflagHex = capabilities.hexArray[h+1];
+              var bitflagBin = $scope.hex2bin(bitflagHex);
+              var len = bitflagBin.length;
+              capabilities.bitflag = {
+                lvl1ob :			bitflagBin[len-1],
+                lvl2ob :			bitflagBin[len-2],
+                lvl3ob :			bitflagBin[len-3],
+                tradeData : 		bitflagBin[len-4],
+                endToEndLatency :	bitflagBin[len-5],
+                conflation : 		bitflagBin[len-6],
+                reserved2 : 		bitflagBin[len-7],
+                reserved3 : 		bitflagBin[len-8]
+              }
+              h++;
+            }
+          }
+          $scope.capabilities = capabilities;
+          return capabilities;	
+        }
+        $scope.parseData = function(data){
+          var length;
+          var start;
+          if(data.type == "Data" && $scope.protocol == "02"){
+            length = $scope.hex2dec(data.hexArray[2]);
+            start = 3;
+          }
+          else if(data.type == "Data" && $scope.protocol == "03"){
+            length = $scope.hex2dec(data.hexArray[2] + data.hexArray[3]);
+            start = 4;
+          }
+          else if(data.type == "Snapshot" && $scope.protocol == "02"){
+            $scope.fail({name:"Protocol"},"SnapshotMissingInV2","Snapshot present in V2",data);
+          }
+          else if(data.type == "Snapshot" && $scope.protocol == "03"){
+            length = $scope.hex2dec(data.hexArray[2] + data.hexArray[3] + data.hexArray[4]);
+            start = 5;
+          }
+          data.length = length;
+          data.ob2 = {};
+          var lastPosition;
+          for(var h = start; h < data.hexArray.length; h++){
+            h = Number(h);
+            if(data.hexArray[h] == "1A"){
+              var exchangeLength = $scope.hex2dec(data.hexArray[h+1]);
+              var exchangeHex = data.hexArray.slice(h+2,h+2+exchangeLength);
+              var exchangeDec = $scope.arrhex2dec(exchangeHex);
+              var exchange = $scope.arrdec2str(exchangeDec);
+              var l = exchange.length;
+              data.exchange = exchange;
+              h = h + 2 + exchangeLength - 1;
+            }
+            else if(data.hexArray[h] == "18"){
+              var coinPairLength = $scope.hex2dec(data.hexArray[h+1]);
+              var coinPairHex = data.hexArray.slice(h+2,h+2+coinPairLength);
+              var coinPairDec = $scope.arrhex2dec(coinPairHex);
+              var coinPair = $scope.arrdec2str(coinPairDec);
+              data.coinPair = coinPair;
+              h = h + 2 + coinPairLength - 1;
+            }
+            else if(data.hexArray[h] == "1B"){
+              var sequenceHex = data.hexArray.slice(h+1,h+2)[0];
+              var sequenceDec = $scope.hex2dec(sequenceHex);
+              var sequence = sequenceDec.toString();
+              data.sequence = sequence;
+              h = h + 1;
+            }
+            else if(data.hexArray[h] == "80"){
+              var bidLength = $scope.hex2dec(data.hexArray[h+1]);
+              var bidHex = data.hexArray.slice(h+2,h+2+bidLength);
+              var bidDec = $scope.arrhex2dec(bidHex);
+              var bid = $scope.arrdec2str(bidDec);
+              data.bid = bid;
+              h = h + 2 + bidLength - 1;
+            }
+            else if(data.hexArray[h] == "81"){
+              var askLength = $scope.hex2dec(data.hexArray[h+1]);
+              var askHex = data.hexArray.slice(h+2,h+2+askLength);
+              var askDec = $scope.arrhex2dec(askHex);
+              var ask = $scope.arrdec2str(askDec);
+              data.ask = ask;
+              h = h + 2 + askLength - 1;
+            }
+            else if(data.hexArray[h] == "82"){
+              var lastLength = $scope.hex2dec(data.hexArray[h+1]);
+              var lastHex = data.hexArray.slice(h+2,h+2+lastLength);
+              var lastDec = $scope.arrhex2dec(lastHex);
+              var last = $scope.arrdec2str(lastDec);
+              data.last = last;
+              h = h + 2 + lastLength - 1;
+            }
+            else if(data.hexArray[h] == "83"){
+              var volume24hLength = $scope.hex2dec(data.hexArray[h+1]);
+              var volume24hHex = data.hexArray.slice(h+2,h+2+volume24hLength);
+              var volume24hDec = $scope.arrhex2dec(volume24hHex);
+              var volume24h = $scope.arrdec2str(volume24hDec);
+              data.volume24h = volume24h;
+              h = h + 2 + volume24hLength - 1;
+            }
+            else if(data.hexArray[h] == "84"){
+              var volume30dLength = $scope.hex2dec(data.hexArray[h+1]);
+              var volume30dHex = data.hexArray.slice(h+2,h+2+volume30dLength);
+              var volume30dDec = $scope.arrhex2dec(volume30dHex);
+              var volume30d = $scope.arrdec2str(volume30dDec);
+              data.volume30d = volume30d;
+              h = h + 2 + volume30dLength - 1;
+            }
+            else if(data.hexArray[h] == "85"){
+              var end2endLength = $scope.hex2dec(data.hexArray[h+1]);
+              var end2endHex = data.hexArray.slice(h+2,h+2+end2endLength);
+              var end2endDec = $scope.arrhex2dec(end2endHex);
+              var end2end = $scope.arrdec2str(end2endDec);
+              data.end2end = end2end;
+              h = h + 2 + end2endLength - 1;
+            }
+            else if(data.hexArray[h] == "86"){
+              var lastVolumeLength = $scope.hex2dec(data.hexArray[h+1]);
+              var lastVolumeHex = data.hexArray.slice(h+2,h+2+lastVolumeLength);
+              var lastVolumeDec = $scope.arrhex2dec(lastVolumeHex);
+              var lastVolume = $scope.arrdec2str(lastVolumeDec);
+              data.lastVolume = lastVolume;
+              h = h + 2 + lastVolumeLength - 1;
+            }
+            else if(data.hexArray[h] == "87"){
+              var positionLength = $scope.hex2dec(data.hexArray[h+1]);
+              var positionHex = data.hexArray.slice(h+2,h+2+positionLength);
+              var positionDec = $scope.arrhex2dec(positionHex);
+              var position = $scope.arrdec2str(positionDec);
+              data.ob2[position]={};
+              lastPosition = position;
+              h = h + 2 + positionLength - 1;
+            }
+            else if(data.hexArray[h] == "88"){
+              var amountLength = $scope.hex2dec(data.hexArray[h+1]);
+              var amountHex = data.hexArray.slice(h+2,h+2+amountLength);
+              var amountDec = $scope.arrhex2dec(amountHex);
+              var amount = $scope.arrdec2str(amountDec);
+              data.ob2[lastPosition].amount = amount;
+              lastPosition = undefined;
+              h = h + 2 + amountLength - 1;
+            }
+          }
+          data.timestamp = Date.now();
+          $scope.data.push(data);
+          
+          $scope.updateTable(data);
+        }
+        $scope.buildSubscribeMessage = function(){
+          var subscribe = {};
+          //Object.assign(subscribe,$scope.capabilities);
+          subscribe.hexArray = $scope.capabilities.hexArray.map(x => x);
+          
+          subscribe.type = "Subscribe";
+          subscribe.hexArray[1] = "11";
+          
+          subscribe.hexArray = ["CC","11","00","1B","18","07","42","54","43","2d","55","53","44","18","08","42","54","43","2d","55","53","44","54","19",,"00"];
+      
+          var bitflag = 0;
+          if( $scope.optLevel1OB == true ){
+            bitflag = bitflag + 1;
+          }
+          if( $scope.optLevel2OB == true ){
+            bitflag = bitflag + 2;
+          }
+          if( $scope.optLevel3OB == true ){
+            bitflag = bitflag + 4;
+          }
+          if( $scope.optTrade == true ){
+            bitflag = bitflag + 8;
+          }
+          if( $scope.optEndToEnd == true ){
+            bitflag = bitflag + 16;
+          }
+          if( $scope.conflation == true ){
+            bitflag = bitflag + 32;
+          }
+          var bitflaghex = $scope.dec2hex(bitflag);
+          
+          subscribe.hexArray[subscribe.hexArray.length-2] = bitflaghex;
+          
+          subscribe.decArray = $scope.arrhex2dec(subscribe.hexArray);
+          subscribe.uint8Array = Uint8Array.from(subscribe.decArray);
+          
+          var bitflagBin = $scope.hex2bin(bitflaghex);
+          var len = bitflagBin.length;
+          
+          subscribe.bitflag = {
+            lvl1ob :			bitflagBin[len-1],
+            lvl2ob :			bitflagBin[len-2],
+            lvl3ob :			bitflagBin[len-3],
+            tradeData : 		bitflagBin[len-4],
+            endToEndLatency :	bitflagBin[len-5],
+            conflation : 		bitflagBin[len-6],
+            reserved2 : 		bitflagBin[len-7],
+            reserved3 : 		bitflagBin[len-8]
+          }
+          $scope.subscribe = subscribe;
+          return subscribe;
+        }
+        $scope.updateTable = function(data){
+          var pastMatch = $scope.table.find(x => x.exchange == data.exchange && x.coinPair == data.coinPair);
+          
+          var index;
+          if(pastMatch != undefined){
+            var preExisting = {};
+            Object.assign(preExisting,pastMatch);
+            
+          
+            index = $scope.table.indexOf(pastMatch);
+      
+            var newOb2 = {};
+            Object.assign(newOb2,preExisting.ob2);
+            for(d in data.ob2){
+              newOb2[d] = data.ob2[d];
+            }
+      
+            Object.assign($scope.table[index],data)
+            
+            $scope.table[index].ob2 = newOb2;
+            
+            $scope.table[index].timestamp = data.timestamp;
+            
+               <!-- if(preExisting.bid < data.bid){$scope.table[index].bidD = "more"+data.timestamp} -->
+            <!-- else if(preExisting.bid > data.bid){$scope.table[index].bidD = "less"+data.timestamp} -->
+            <!-- else if(preExisting.bid == data.bid){$scope.table[index].bidD = "same"+data.timestamp} -->
+               <!-- if(preExisting.ask < data.ask){$scope.table[index].askD = "more"+data.timestamp} -->
+            <!-- else if(preExisting.ask > data.ask){$scope.table[index].askD = "less"+data.timestamp} -->
+            <!-- else if(preExisting.ask == data.ask){$scope.table[index].askD = "same"+data.timestamp} -->
+               <!-- if(preExisting.last < data.last){$scope.table[index].lastD = "more"+data.timestamp} -->
+            <!-- else if(preExisting.last > data.last){$scope.table[index].lastD = "less"+data.timestamp} -->
+            <!-- else if(preExisting.last == data.last){$scope.table[index].lastD = "same"+data.timestamp} -->
+               <!-- if(preExisting.lastVolume < data.lastVolume){$scope.table[index].lastVolumeD = "more"+data.timestamp} -->
+            <!-- else if(preExisting.lastVolume > data.lastVolume){$scope.table[index].lastVolumeD = "less"+data.timestamp} -->
+            <!-- else if(preExisting.lastVolume == data.lastVolume){$scope.table[index].lastVolumeD = "same"+data.timestamp} -->
+               <!-- if(preExisting.volume24h < data.volume24h){$scope.table[index].volume24hD = "more"+data.timestamp} -->
+            <!-- else if(preExisting.volume24h > data.volume24h){$scope.table[index].volume24hD = "less"+data.timestamp} -->
+            <!-- else if(preExisting.volume24h == data.volume24h){$scope.table[index].volume24hD = "same"+data.timestamp} -->
+               <!-- if(preExisting.volume30d < data.volume30d){$scope.table[index].volume30dD = "more"+data.timestamp} -->
+            <!-- else if(preExisting.volume30d > data.volume30d){$scope.table[index].volume30dD = "less"+data.timestamp} -->
+            <!-- else if(preExisting.volume30d == data.volume30d){$scope.table[index].volume30dD = "same"+data.timestamp} -->
+               <!-- if(preExisting.end2end < data.end2end){$scope.table[index].end2endD = "more"+data.timestamp} -->
+            <!-- else if(preExisting.end2end > data.end2end){$scope.table[index].end2endD = "less"+data.timestamp} -->
+            <!-- else if(preExisting.end2end == data.end2end){$scope.table[index].end2endD = "same"+data.timestamp} -->
+               <!-- if(preExisting.timestamp < data.timestamp){$scope.table[index].timestampD = "more"+data.timestamp} -->
+            <!-- else if(preExisting.timestamp > data.timestamp){$scope.table[index].timestampD = "less"+data.timestamp} -->
+            <!-- else if(preExisting.timestamp == data.timestamp){$scope.table[index].timestampD = "same"+data.timestamp} -->
+          }
+          else{
+            index = $scope.table.length;
+      
+            data.bidD = "new";
+            data.askD = "new";
+            data.lastD = "new";
+            data.lastVolumeD = "new";
+            data.volume24hD = "new";
+            data.volume30dD = "new";
+            data.end2endD = "new";
+            data.timestampD = "new";
+            
+            $scope.table.push(data);
+          }
+          var thisRow = $scope.table[index];
+          
+          if(thisRow.bid != undefined && thisRow.ask != undefined && data.last != undefined){
+            var ctx = document.getElementById("tradechart").getContext('2d');
+            var chartData = {};
+            angular.copy($scope.chartTemplate2,chartData);
+            
+            min = thisRow.bid * 0.99;
+            max = thisRow.ask * 1.01;
+            
+            if(window.chart2 == undefined){
+              window.chart2 = new Chart(ctx, chartData);
+              window.chart2.options.scales.yAxes[0].ticks.min = min;
+              window.chart2.options.scales.yAxes[0].ticks.max = max;
+            }
+            else if(data.exchange=="Binance"){window.chart2.data.datasets[0].data.push({x:data.timestamp,y:data.last})}
+            else if(data.exchange=="Bitfinex"){window.chart2.data.datasets[1].data.push({x:data.timestamp,y:data.last})}
+            else if(data.exchange=="Cryptopia"){window.chart2.data.datasets[2].data.push({x:data.timestamp,y:data.last})}
+            else if(data.exchange=="HitBTC"){window.chart2.data.datasets[3].data.push({x:data.timestamp,y:data.last})}
+            var date = new Date();
+            window.chart2.options.scales.xAxes[0].ticks.min = Number(date.valueOf()) - 60000;
+            window.chart2.options.scales.xAxes[0].ticks.max = Number(date.valueOf());
+          }	
+          
+          if(data.lastVolume != undefined){
+            var ctx = document.getElementById("volumechart").getContext('2d');
+            var chartData = {};
+            angular.copy($scope.chartTemplate3,chartData);
+            
+            if(window.chart3 == undefined){
+              window.chart3 = new Chart(ctx, chartData);
+            }
+            else if(data.exchange=="Binance"){window.chart3.data.datasets[0].data[0] += Number(data.lastVolume)}
+            else if(data.exchange=="Bitfinex"){window.chart3.data.datasets[0].data[1] += Number(data.lastVolume)}
+            else if(data.exchange=="Cryptopia"){window.chart3.data.datasets[0].data[2] += Number(data.lastVolume)}
+            else if(data.exchange=="HitBTC"){window.chart3.data.datasets[0].data[3] += Number(data.lastVolume)}
+          }	
+          
+          
+          if(thisRow.ob2 != undefined && thisRow.ob2.length != 0 && thisRow.bid != undefined && thisRow.ask != undefined){
+            var chartLabel = Object.keys(thisRow.ob2).sort((x,y)=>x-y);
+            var ob2 = chartLabel.map(x=>{return {position:Number(x),amount:Number(thisRow.ob2[x].amount)}});
+            
+            var bids = ob2.filter(x => x.position <= thisRow.bid);
+            var bidsCount = bids.length;
+            
+            var asks = ob2.filter(x => x.position >= thisRow.ask);
+            var asksCount = asks.length;
+            
+            if(asksCount > bidsCount*5){
+              //debugger;
+            }
+      
+            if(bidsCount > 0){
+              bids[bidsCount-1].total = bids[bidsCount-1].amount;
+              for(var b = bidsCount - 2; b >= 0; b--){
+                bids[b].total = bids[b+1].total + bids[b].amount;
+              }
+            }
+            if(asksCount > 0){
+              asks[0].total = asks[0].amount;
+              for(var a = 1; a <= asksCount - 1; a++){
+                asks[a].total = asks[a-1].total + asks[a].amount;
+              }
+            }
+            
+            var chartBids = bids.map(x=>{return {x:x.position,y:x.total}});
+            var chartAsks = asks.map(x=>{return {x:x.position,y:x.total}});
+            
+            var chartData = {};
+            angular.copy($scope.chartTemplate,chartData);
+            if(thisRow.exchange=="Bitfinex"){
+              chartData.data.datasets[0].data = chartBids;
+              chartData.data.datasets[1].data = chartAsks;
+            }
+            else if(thisRow.exchange=="HitBTC"){
+              chartData.data.datasets[2].data = chartBids;
+              chartData.data.datasets[3].data = chartAsks;
+            }
+            min = thisRow.bid * 0.9;
+            max = thisRow.ask * 1.1;
+            
+            
+            var ctx = document.getElementById("level2chart").getContext('2d');
+            
+            if(window.chart == undefined){
+              window.chart = new Chart(ctx, chartData);
+              window.chart.options.scales.xAxes[0].ticks.min = min;
+              window.chart.options.scales.xAxes[0].ticks.max = max;
+              window.chart.options.scales.yAxes[0].ticks.max = 5000;
+            }
+            else if(thisRow.exchange=="Bitfinex"){
+              window.chart.data.datasets[0].data = chartBids;
+              window.chart.data.datasets[1].data = chartAsks;
+            }
+            else if(thisRow.exchange=="HitBTC"){
+              window.chart.data.datasets[2].data = chartBids;
+              window.chart.data.datasets[3].data = chartAsks;
+            }
+          }/*
+          for(d in $scope.table){
+            row = $scope.table[d];
+            document.querySelector("."+row.exchange+" .bid").innerText = row.bid ? Number(row.bid).toFixed(2) : "";
+            document.querySelector("."+row.exchange+" .ask").innerText = row.ask ? Number(row.ask).toFixed(2) : "";
+            document.querySelector("."+row.exchange+" .spread").innerText = row.bid && row.ask ? (((row.ask-row.bid)/row.ask)*100).toFixed(3)+"%" : "";
+            document.querySelector("."+row.exchange+" .last").innerText = row.last ? Number(row.last).toFixed(2) : "";
+            document.querySelector("."+row.exchange+" .lastVolume").innerText = row.lastVolume ? Number(row.lastVolume).toFixed(5) : "";
+          }*/
+        }
+        $scope.window = window;
+        
+        $scope.logRow = function(row){
+          console.log(row.chartName);
+          console.log(row);
+          console.log(window.charts[row.chartName].data.datasets[0].data);
+          console.log(window.charts[row.chartName].data.datasets[1].data);
+          console.log(window.charts[row.chartName].options.scales.xAxes[0].ticks);
+        }
+        $scope.connect();
+      </script>
+
+
+
     
     <script>
+      var CCC = CCC || {};
+
+CCC.STATIC=CCC.STATIC || {};
+
+CCC.STATIC.TYPE={
+    'TRADE'                  : '0'
+  , 'FEEDNEWS'               : '1'
+  , 'CURRENT'                : '2'
+  , 'LOADCOMPLATE'           : '3'
+  , 'COINPAIRS'              : '4'
+  , 'CURRENTAGG'             : '5'
+  , 'TOPLIST'                : '6'
+  , 'TOPLISTCHANGE'          : '7'
+  , 'ORDERBOOK'              : '8'
+  , 'FULLORDERBOOK'          : '9'
+  , 'ACTIVATION'             : '10'
+
+  , 'TRADECATCHUP'           : '100'
+  , 'NEWSCATCHUP'            : '101'
+  
+  , 'TRADECATCHUPCOMPLETE'   : '300'
+  , 'NEWSCATCHUPCOMPLETE'    : '301'
+  
+};
+
+CCC.STATIC.CURRENCY = CCC.STATIC.CURRENCY || {};
+
+CCC.STATIC.CURRENCY.SYMBOL = {
+	'BTC'  : 'Ƀ'
+  , 'LTC'  : 'Ł'
+  , 'DAO'  : 'Ð'
+  , 'USD'  : '$'
+  , 'CNY'  : '¥'
+  , 'EUR'  : '€'
+  , 'GBP'  : '£'
+  , 'JPY'  : '¥'
+  , 'PLN'  : 'zł'
+  , 'RUB'  : '₽'
+  , 'ETH'  : 'Ξ'
+  , 'GOLD' : 'Gold g'
+  , 'INR'  : '₹'
+  , 'BRL'  : 'R$'
+};
+
+CCC.STATIC.CURRENCY.getSymbol = function(symbol){
+	return CCC.STATIC.CURRENCY.SYMBOL[symbol] || symbol;
+};
+
+CCC.STATIC.UTIL = {
+	exchangeNameMapping : {
+		'CCCAGG':'CryptoCompare Index',
+		'BTCChina':'BTCC'
+	},
+	isMobile: function(userAgent){
+		if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(userAgent) 
+    	|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(userAgent.substr(0,4))) 
+			return true;
+		return false;
+	},
+	convertToMB : function(bytes){
+		return (parseInt(bytes,10)/1024/1024).toFixed(2)+' MB';
+	},
+	getNameForExchange : function(exchangeName){
+		if(this.exchangeNameMapping.hasOwnProperty(exchangeName)){
+			return this.exchangeNameMapping[exchangeName];
+		}
+		return exchangeName;
+	},
+	noExponents : function(value){
+		var data= String(value).split(/[eE]/);
+		if(data.length== 1) return data[0]; 
+		
+		var  z= '', sign= value<0? '-':'',
+		str= data[0].replace('.', ''),
+		mag= Number(data[1])+ 1;
+
+		if(mag<0){
+			z= sign + '0.';
+			while(mag++) z += '0';
+			return z + str.replace(/^\-/,'');
+		}
+		mag -= str.length;  
+		while(mag--) z += '0';
+		return str + z;
+	},
+	reduceFloatVal : function(value){
+		value = parseFloat(value);
+		if(value>1){
+			value = Math.round(value * 100) / 100;
+			return value;
+		}
+		if(value>=0.00001000){
+		    return parseFloat(value.toPrecision(4));
+        }
+        if(value>=0.00000100){
+		    return parseFloat(value.toPrecision(3));
+        }
+        if(value>=0.00000010){
+		    return parseFloat(value.toPrecision(2));
+        }
+		return parseFloat(value.toPrecision(1));
+    },
+	reduceReal : function(value){
+        value = parseFloat(value);
+		return parseFloat(value.toFixed(8));
+    },
+    convertCurrentKeyToAll : function(key){
+        var valuesArray = key.split("~");
+        valuesArray[0]=CCC.STATIC.TYPE.CURRENTAGG;
+        valuesArray[1]='CCCAGG';
+        return valuesArray.join('~');
+    },
+	convertCurrentKeyToTrade : function(key){
+        var valuesArray = key.split("~");
+        valuesArray[0]=CCC.STATIC.TYPE.TRADE;
+    	return valuesArray.join('~');
+    },
+	convertValueToDisplay: function(symbol,value,filterNumberFunctionAngularJS,type,fullNumbers){
+		var prefix = '';
+		var valueSign=1;
+		value = parseFloat(value);
+		var valueAbs=Math.abs(value);
+		var decimalsOnBigNumbers = 2;
+		var decimalsOnNormalNumbers = 2;
+		var decimalsOnSmallNumbers = 4;
+		if(fullNumbers===true){
+			decimalsOnBigNumbers =2;
+			decimalsOnNormalNumbers = 0;
+			decimalsOnSmallNumbers= 4;
+		}
+		if(type=="8decimals"){
+			decimalsOnBigNumbers =4;
+			decimalsOnNormalNumbers = 8;
+			decimalsOnSmallNumbers= 8;
+			if(value<0.0001 && value>=0.00001){decimalsOnSmallNumbers=4;}
+			if(value<0.001 && value>=0.0001){decimalsOnSmallNumbers=5;}
+			if(value<0.01 && value>=0.001){decimalsOnSmallNumbers=6;}
+			if(value<0.1 && value>=0.01){decimalsOnSmallNumbers=7;}
+		}
+		if(symbol!=''){prefix = symbol+' ';}
+		if(value<0){valueSign = -1;}
+		if(value==0){return prefix+'0';}
+		
+		if(value<0.00001000 && value>=0.00000100 && decimalsOnSmallNumbers>3){
+			decimalsOnSmallNumbers=3;
+		}
+		if(value<0.00000100 && value>=0.00000010 && decimalsOnSmallNumbers>2){
+			decimalsOnSmallNumbers=2;
+		}
+		if(value<0.00000010 && decimalsOnSmallNumbers>1){
+			decimalsOnSmallNumbers=1;
+		}
+		
+		if(type=="short"||type=="8decimals"){
+			if(valueAbs>10000000000){
+				valueAbs=valueAbs/1000000000;
+				return prefix+filterNumberFunctionAngularJS(valueSign*valueAbs,decimalsOnBigNumbers)+' B';
+			}
+			if(valueAbs>10000000){
+				valueAbs=valueAbs/1000000;
+				return prefix+filterNumberFunctionAngularJS(valueSign*valueAbs,decimalsOnBigNumbers)+' M';
+			}
+			if(valueAbs>10000){
+				valueAbs=valueAbs/1000;
+				return prefix+filterNumberFunctionAngularJS(valueSign*valueAbs,decimalsOnBigNumbers)+' K';
+			}
+			if(type=="8decimals" && valueAbs>=100){
+				return prefix+filterNumberFunctionAngularJS(valueSign*valueAbs,decimalsOnBigNumbers);
+			}
+			if(valueAbs>=1){
+				return prefix+filterNumberFunctionAngularJS(valueSign*valueAbs,decimalsOnNormalNumbers);
+			}
+			return prefix+(valueSign*valueAbs).toPrecision(decimalsOnSmallNumbers);
+		}else{
+			if(valueAbs>=1){
+				return prefix+filterNumberFunctionAngularJS(valueSign*valueAbs,decimalsOnNormalNumbers);
+			}
+			
+			return prefix+this.noExponents((valueSign*valueAbs).toPrecision(decimalsOnSmallNumbers));
+		}
+	}
+};
+
+
+CCC.TRADE=CCC.TRADE || {};
+/*
+trade fields binary values always in the last ~
+*/
+
+CCC.TRADE.FLAGS = {
+    'SELL'       : 0x1 // hex for binary 1
+  , 'BUY'        : 0x2 // hex for binary 10
+  , 'UNKNOWN'    : 0x4 // hex for binary 100
+}
+
+CCC.TRADE.FIELDS = {
+    'T'          : 0x0  // hex for binary 0, it is a special case of fields that are always there TYPE
+  , 'M'          : 0x0  // hex for binary 0, it is a special case of fields that are always there MARKET
+  , 'FSYM'       : 0x0  // hex for binary 0, it is a special case of fields that are always there FROM SYMBOL
+  , 'TSYM'       : 0x0  // hex for binary 0, it is a special case of fields that are always there TO SYMBOL
+  , 'F'          : 0x0  // hex for binary 0, it is a special case of fields that are always there FLAGS
+  , 'ID'         : 0x1  // hex for binary 1                                                       ID
+  , 'TS'         : 0x2  // hex for binary 10                                                      TIMESTAMP
+  , 'Q'          : 0x4  // hex for binary 100                                                     QUANTITY
+  , 'P'          : 0x8  // hex for binary 1000                                                    PRICE
+  , 'TOTAL'      : 0x10 // hex for binary 10000                                                   TOTAL
+
+};
+
+CCC.TRADE.DISPLAY = CCC.TRADE.DISPLAY||{};
+CCC.TRADE.DISPLAY.FIELDS = {
+    'T'          : {"Show":false}
+  , 'M'          : {"Show":true, 'Filter':'Market'}
+  , 'FSYM'       : {"Show":true, 'Filter':'CurrencySymbol'}
+  , 'TSYM'       : {"Show":true, 'Filter':'CurrencySymbol'}
+  , 'F'          : {"Show":true, 'Filter':'TradeFlag'}
+  , 'ID'         : {"Show":true, 'Filter':'Text'}
+  , 'TS'         : {'Show':true, 'Filter':'Date'  , 'Format':'yyyy MMMM dd HH:mm:ss'}
+  , 'Q'          : {'Show':true, 'Filter':'Number', 'Symbol':'FSYM'}
+  , 'P'          : {'Show':true, 'Filter':'Number', 'Symbol':'TSYM'}
+  , 'TOTAL'      : {'Show':true, 'Filter':'Number', 'Symbol':'TSYM'}
+
+};
+
+CCC.TRADE.pack = function(tradeObject){
+    var mask = 0;
+    var packedTrade ='';
+    for (var field in tradeObject) {
+        packedTrade += '~'+tradeObject[field];
+        mask|=this.FIELDS[field];
+    }
+    return packedTrade.substr(1)+'~'+mask.toString(16);
+};
+
+CCC.TRADE.unpack = function(tradeString){
+    var valuesArray = tradeString.split("~");
+    var valuesArrayLenght = valuesArray.length;
+    var mask = valuesArray[valuesArrayLenght-1];
+    var maskInt = parseInt(mask,16);
+    var unpackedTrade = {};
+    var currentField = 0;
+    for(var property in this.FIELDS){
+        if(this.FIELDS[property] === 0)
+        {
+            unpackedTrade[property] = valuesArray[currentField];
+            currentField++;
+        }
+        else if(maskInt&this.FIELDS[property])
+        {
+            unpackedTrade[property] = valuesArray[currentField];
+            currentField++;
+        }
+    }
+    
+    return unpackedTrade;
+}
+
+CCC.TRADE.getKey = function(tradeObject){
+    return tradeObject['T']+'~'+tradeObject['M']+'~'+tradeObject['FSYM']+'~'+tradeObject['TSYM'];
+};
+
+CCC.CURRENT=CCC.CURRENT || {};
+/*
+current fields mask values always in the last ~
+*/
+
+CCC.CURRENT.FLAGS = {
+    'PRICEUP'        : 0x1    // hex for binary 1
+  , 'PRICEDOWN'      : 0x2    // hex for binary 10
+  , 'PRICEUNCHANGED' : 0x4    // hex for binary 100
+  , 'BIDUP'          : 0x8    // hex for binary 1000
+  , 'BIDDOWN'        : 0x10   // hex for binary 10000
+  , 'BIDUNCHANGED'   : 0x20   // hex for binary 100000
+  , 'OFFERUP'        : 0x40   // hex for binary 1000000
+  , 'OFFERDOWN'      : 0x80   // hex for binary 10000000
+  , 'OFFERUNCHANGED' : 0x100  // hex for binary 100000000
+  , 'AVGUP'          : 0x200  // hex for binary 1000000000
+  , 'AVGDOWN'        : 0x400  // hex for binary 10000000000
+  , 'AVGUNCHANGED'   : 0x800  // hex for binary 100000000000
+};
+
+
+CCC.CURRENT.FIELDS={
+    'TYPE'            : 0x0       // hex for binary 0, it is a special case of fields that are always there
+  , 'MARKET'          : 0x0       // hex for binary 0, it is a special case of fields that are always there
+  , 'FROMSYMBOL'      : 0x0       // hex for binary 0, it is a special case of fields that are always there
+  , 'TOSYMBOL'        : 0x0       // hex for binary 0, it is a special case of fields that are always there
+  , 'FLAGS'           : 0x0       // hex for binary 0, it is a special case of fields that are always there
+  , 'PRICE'           : 0x1       // hex for binary 1
+  , 'BID'             : 0x2       // hex for binary 10
+  , 'OFFER'           : 0x4       // hex for binary 100
+  , 'LASTUPDATE'      : 0x8       // hex for binary 1000
+  , 'AVG'             : 0x10      // hex for binary 10000
+  , 'LASTVOLUME'      : 0x20      // hex for binary 100000
+  , 'LASTVOLUMETO'    : 0x40      // hex for binary 1000000
+  , 'LASTTRADEID'     : 0x80      // hex for binary 10000000
+  , 'VOLUMEHOUR'      : 0x100     // hex for binary 100000000
+  , 'VOLUMEHOURTO'    : 0x200     // hex for binary 1000000000
+  , 'VOLUME24HOUR'    : 0x400     // hex for binary 10000000000
+  , 'VOLUME24HOURTO'  : 0x800     // hex for binary 100000000000
+  , 'OPENHOUR'        : 0x1000    // hex for binary 1000000000000
+  , 'HIGHHOUR'        : 0x2000    // hex for binary 10000000000000
+  , 'LOWHOUR'         : 0x4000    // hex for binary 100000000000000
+  , 'OPEN24HOUR'      : 0x8000    // hex for binary 1000000000000000
+  , 'HIGH24HOUR'      : 0x10000   // hex for binary 10000000000000000
+  , 'LOW24HOUR'       : 0x20000   // hex for binary 100000000000000000
+  , 'LASTMARKET'      : 0x40000   // hex for binary 1000000000000000000, this is a special case and will only appear on CCCAGG messages
+};
+
+CCC.CURRENT.DISPLAY = CCC.CURRENT.DISPLAY||{};
+CCC.CURRENT.DISPLAY.FIELDS={
+	'TYPE'            : {'Show':false}
+  , 'MARKET'          : {'Show':true, 'Filter':'Market'}
+  , 'FROMSYMBOL'      : {'Show':false}
+  , 'TOSYMBOL'        : {'Show':false}
+  , 'FLAGS'           : {'Show':false}
+  , 'PRICE'           : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'BID'             : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'OFFER'           : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'LASTUPDATE'      : {'Show':true, 'Filter':'Date'  , 'Format':'yyyy MMMM dd HH:mm:ss'}
+  , 'AVG'             : {'Show':true,' Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'LASTVOLUME'      : {'Show':true, 'Filter':'Number', 'Symbol':'FROMSYMBOL'}
+  , 'LASTVOLUMETO'    : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'LASTTRADEID'     : {'Show':true, 'Filter':'String'}
+  , 'VOLUMEHOUR'      : {'Show':true, 'Filter':'Number', 'Symbol':'FROMSYMBOL'}
+  , 'VOLUMEHOURTO'    : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'VOLUME24HOUR'    : {'Show':true, 'Filter':'Number', 'Symbol':'FROMSYMBOL'}
+  , 'VOLUME24HOURTO'  : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'OPENHOUR'        : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'HIGHHOUR'        : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'LOWHOUR'         : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'OPEN24HOUR'      : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'HIGH24HOUR'      : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'LOW24HOUR'       : {'Show':true, 'Filter':'Number', 'Symbol':'TOSYMBOL'}
+  , 'LASTMARKET'      : {'Show':true, 'Filter':'String'}
+};
+
+CCC.CURRENT.pack = function(currentObject)
+{
+    var mask = 0;
+    var packedCurrent ='';
+    for(var property in this.FIELDS)
+    {
+        if(currentObject.hasOwnProperty(property)){
+            packedCurrent += '~'+currentObject[property];
+            mask|=this.FIELDS[property];
+        }
+    }
+    //removing first character beacsue it is a ~
+    return packedCurrent.substr(1)+'~'+mask.toString(16);
+};
+
+CCC.CURRENT.unpack = function(value)
+{
+    var valuesArray = value.split("~");
+    var valuesArrayLenght = valuesArray.length;
+    var mask = valuesArray[valuesArrayLenght-1];
+    var maskInt = parseInt(mask,16);
+    var unpackedCurrent = {};
+    var currentField = 0;
+    for(var property in this.FIELDS)
+    {
+        if(this.FIELDS[property] === 0)
+        {
+            unpackedCurrent[property] = valuesArray[currentField];
+            currentField++;
+        }
+        else if(maskInt&this.FIELDS[property])
+        {
+			//i know this is a hack, for cccagg, future code please don't hate me:(, i did this to avoid
+			//subscribing to trades as well in order to show the last market
+         	if(property === 'LASTMARKET'){
+                unpackedCurrent[property] = valuesArray[currentField];
+            }else{
+                 unpackedCurrent[property] = parseFloat(valuesArray[currentField]);
+            }
+            currentField++;
+        }
+    }
+    
+    return unpackedCurrent;
+};
+CCC.CURRENT.getKey = function(currentObject){
+    return currentObject['TYPE']+'~'+currentObject['MARKET']+'~'+currentObject['FROMSYMBOL']+'~'+currentObject['TOSYMBOL'];
+};
+CCC.CURRENT.getKeyFromStreamerData = function(streamerData){
+	var valuesArray = streamerData.split("~");
+    return valuesArray[0]+'~'+valuesArray[1]+'~'+valuesArray[2]+'~'+valuesArray[3];
+};
+
+CCC.noExponents = function(value){
+    var data= String(value).split(/[eE]/);
+    if(data.length== 1) return data[0]; 
+    
+    var  z= '', sign= value<0? '-':'',
+    str= data[0].replace('.', ''),
+    mag= Number(data[1])+ 1;
+
+    if(mag<0){
+      z= sign + '0.';
+      while(mag++) z += '0';
+      return z + str.replace(/^\-/,'');
+    }
+    mag -= str.length;  
+    while(mag--) z += '0';
+    return str + z;
+};
+
+CCC.filterNumberFunctionPolyfill = function(value,decimals){
+  var decimalsDenominator = Math.pow(10,decimals);
+  var numberWithCorrectDecimals = Math.round(value*decimalsDenominator)/decimalsDenominator;
+  var parts = numberWithCorrectDecimals.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return parts.join(".");
+}
+
+CCC.convertValueToDisplay =  function(symbol,value,type,fullNumbers){
+    var prefix = '';
+    var valueSign=1;
+    value = parseFloat(value);
+    var valueAbs=Math.abs(value);
+    var decimalsOnBigNumbers = 2;
+    var decimalsOnNormalNumbers = 2;
+    var decimalsOnSmallNumbers = 4;
+    if(fullNumbers===true){
+      decimalsOnBigNumbers =2;
+      decimalsOnNormalNumbers = 0;
+      decimalsOnSmallNumbers= 4;
+    }
+    if(symbol!=''){
+      prefix = symbol+' ';
+    }
+    if(value<0){
+      valueSign = -1;
+    }
+    
+    if(value==0){
+      return prefix+'0';
+    }
+    
+    if(value<0.00001000 && value>=0.00000100 && decimalsOnSmallNumbers>3){
+      decimalsOnSmallNumbers=3;
+    }
+    if(value<0.00000100 && value>=0.00000010 && decimalsOnSmallNumbers>2){
+      decimalsOnSmallNumbers=2;
+    }
+    if(value<0.00000010 && value>=0.00000001 && decimalsOnSmallNumbers>1){
+      decimalsOnSmallNumbers=1;
+    }
+    
+    if(type=="short"){
+      if(valueAbs>10000000000){
+        valueAbs=valueAbs/1000000000;
+        return prefix+CCC.filterNumberFunctionPolyfill(valueSign*valueAbs,decimalsOnBigNumbers)+' B';
+      }
+      if(valueAbs>10000000){
+        valueAbs=valueAbs/1000000;
+        return prefix+CCC.filterNumberFunctionPolyfill(valueSign*valueAbs,decimalsOnBigNumbers)+' M';
+      }
+      if(valueAbs>10000){
+        valueAbs=valueAbs/1000;
+        return prefix+CCC.filterNumberFunctionPolyfill(valueSign*valueAbs,decimalsOnBigNumbers)+' K';
+      }
+      if(valueAbs>=1){
+        return prefix+CCC.filterNumberFunctionPolyfill(valueSign*valueAbs,decimalsOnNormalNumbers);
+      }
+      return prefix+(valueSign*valueAbs).toPrecision(decimalsOnSmallNumbers);
+    }else{
+      if(valueAbs>=1){
+        return prefix+CCC.filterNumberFunctionPolyfill(valueSign*valueAbs,decimalsOnNormalNumbers);
+      }
+      
+      return prefix+CCC.noExponents((valueSign*valueAbs).toPrecision(decimalsOnSmallNumbers));
+    }
+  };
+    
+    </script>
+    
+    <script>
+      var socket = io.connect('https://streamer.cryptocompare.com/');
+      var subscription = ['5~CCCAGG~BTC~USD', '5~CCCAGG~ETH~USD', '5~CCCAGG~XMR~USD', '5~CCCAGG~XRP~USD'];
+      socket.emit('SubAdd', { subs: subscription });
+      socket.on("m", function(message) {
+        var messageType = message.substring(0, message.indexOf("~"));
+        var res = {};
+        res = CCC.CURRENT.unpack(message);
+        var symbol = res["FROMSYMBOL"];
+        var price = res["PRICE"]
+        if(res["TYPE"] === "5"){
+          var currentCoin = document.getElementById(symbol);
+          if (price!==undefined && currentCoin !== undefined){
+            currentCoin.innerHTML = "$"+price;
+            currentCoin.style.color = "blue";
+            setTimeout(function(){
+              currentCoin.style.color = "white";
+            }, 1000)
+          }
+        
+        }
+        
+      });
       var getPriceData = function(){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -596,8 +1729,7 @@
               var data = JSON.parse(xhttp.responseText);
               for(var coin in data){
                 var currentCoin = document.getElementById(coin);
-                current.innerHtml = data[coin]
-
+                currentCoin.innerHTML = "$"+data[coin]["USD"]
               }
             }
         };
@@ -606,6 +1738,57 @@
       }
       getPriceData();
     </script>
+
+<script>
+    var ctxa = document.getElementById("myCharthour");
+    var chartDataHour = {
+      datasets: [{
+           data: [],
+           backgroundColor: "#337AB7",
+           borderColor: "transparent"
+          }],
+      labels: []
+    }
+
+
+    var getPriceDataHour = function(){
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          let response = JSON.parse(xhttp.responseText);
+          let dataArrayHour = response.Data;
+           for (let i=0; i< dataArrayHour.length; i++){
+              let time = new Date(dataArrayHour[i].time*1000)
+              let hour = time.getHours();
+              chartDataHour.datasets[0].data.push([dataArrayHour[i].close]);
+              chartDataHour.labels.push(hour);
+          }
+      }
+      buildcharthour(chartDataHour);
+        };
+        xhttp.open("GET", "https://min-api.cryptocompare.com/data/histohour?fsym=BTC&tsym=USD&limit=23", true);
+        xhttp.send();
+    }
+    let buildcharthour = function(data){
+      var myPieChart = new Chart(ctxa, {
+        type: 'line',
+        data: data,
+        options: {elements: {
+          point: {
+              radius : 0
+          },
+          line: {
+              tension: 0
+          }},
+          legend: {
+          display: false
+      }
+  }
+      });
+    }
+    getPriceDataHour();
+
+  </script>
 
 
     <script>
