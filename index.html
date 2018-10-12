@@ -139,41 +139,14 @@
             
             <div class="row">
                 <!---   put block expoloere data here -->
-                <div class="col-xl-4" >
-                    <div class="card text-white text-center bg-dark">
-                        <div class="card-header">{{ title }}</div>
-                        <div class=" p-3 bg-dark rounded box-shadow">
-                            <div class="media text-muted pt-3">
-                              <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://www.cryptocompare.com/media/33187912/header.jpg?anchor=center&mode=crop&width=300&height=300&rnd=131825149810000000" data-holder-rendered="true">
-                              <p class="media-body pb-3 mb-0 small lh-125">
-                                <strong class="d-block text-gray-dark">CryptoCompare</strong>
-                                Dear users, it’s with great pleasure that we invite you to attend the MJAC blockchain conference. Hosting the biggest and brightest blockchain leaders, t....
-                                <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
-                              </p>
-                            </div>
-                            <div class="media text-muted pt-3">
-                              <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://images.cryptocompare.com/news/coinspeaker/9pdojhC4VDc.jpeg" data-holder-rendered="true">
-                              <p class="media-body pb-3 mb-0 small lh-125">
-                                <strong class="d-block text-gray-dark">CoinSpeaker</strong>
-                                Coinbase may have announced plans to list hundreds of new assets over the coming months and years, but that doesn’t mean that the San Francisco-based cryptocurrency exchange has lost its status as crypto-token....
-                                <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
-                              </p>
-                            </div>
-                            <div class="media text-muted pt-3">
-                                <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://images.cryptocompare.com/news/cointelegraph/e98A0M80000.jpeg" data-holder-rendered="true">
-                                <p class="media-body pb-3 mb-0 small lh-125">
-                                  <strong class="d-block text-gray-dark">cointelegraph</strong>
-                                  US senator and potential presidential contender who suggested cryptocurrency “hurt” American......
-                                  <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
-                                </p>
-                              </div>
-                            
-                            <small class="d-block text-right mt-3">
-                              <a href="#">Biew All News</a>
-                            </small>
-                        </div>
-                    </div>
-                </div><!-- end col -->
+                <div class="col-xl-4 col-md-6" >
+                    <div class="card-box" >
+                          <h4 class="header-title mt-0 m-b-30">Volume Over Time (BTC/USD)</h4>
+                          <div class="widget-box-2">
+                            <canvas id="volumechart" width="300" height="300" style="display:block; color:white;"></canvas>
+                          </div>
+                      </div>
+                  </div>
     
                 <div class="col-xl-4" style="margin-bottom:20px;">
                     <div class="card text-white text-center bg-dark" >
@@ -254,14 +227,43 @@
                     </div>
                 </div><!-- end col -->
 
-                <div class="col-xl-3 col-md-6" style="height:500px;">
-                  <div class="card-box" style="height:500px;">
-                        <h4 class="header-title mt-0 m-b-30">Volume Over Time (BTC/USD)</h4>
-                        <div class="widget-box-2">
-                          <canvas id="volumechart" width="300" height="300" style="display:block; color:white;"></canvas>
+                <div class="col-xl-3" style="height:500px;">
+                    <div class="card text-white text-center bg-dark" style="height:500px;">
+                        <div class="card-header">{{ title }}</div>
+                        <div class=" p-3 bg-dark rounded box-shadow">
+                            <div class="media text-muted pt-3">
+                              <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://www.cryptocompare.com/media/33187912/header.jpg?anchor=center&mode=crop&width=300&height=300&rnd=131825149810000000" data-holder-rendered="true">
+                              <p class="media-body pb-3 mb-0 small lh-125">
+                                <strong class="d-block text-gray-dark">CryptoCompare</strong>
+                                Dear users, it’s with great pleasure that we invite you to attend the MJAC blockchain conference. Hosting the biggest and brightest blockchain leaders, t....
+                                <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
+                              </p>
+                            </div>
+                            <div class="media text-muted pt-3">
+                              <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://images.cryptocompare.com/news/coinspeaker/9pdojhC4VDc.jpeg" data-holder-rendered="true">
+                              <p class="media-body pb-3 mb-0 small lh-125">
+                                <strong class="d-block text-gray-dark">CoinSpeaker</strong>
+                                Coinbase may have announced plans to list hundreds of new assets over the coming months and years, but that doesn’t mean that the San Francisco-based cryptocurrency exchange has lost its status as crypto-token....
+                                <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
+                              </p>
+                            </div>
+                            <div class="media text-muted pt-3">
+                                <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="32x32" class="mr-2 rounded" style="width: 50px; height: 50px;" src="https://images.cryptocompare.com/news/cointelegraph/e98A0M80000.jpeg" data-holder-rendered="true">
+                                <p class="media-body pb-3 mb-0 small lh-125">
+                                  <strong class="d-block text-gray-dark">cointelegraph</strong>
+                                  US senator and potential presidential contender who suggested cryptocurrency “hurt” American......
+                                  <a href="https://www.universe.com/embed2/events/5b64417facab240046e1d074?state=%7B%22currentDiscountCode%22%3A%7B%22code%22%3A%22CC30%22%7D%7D">View Story</a>
+                                </p>
+                              </div>
+                            
+                            <small class="d-block text-right mt-3">
+                              <a href="#">Biew All News</a>
+                            </small>
                         </div>
                     </div>
                 </div>
+
+                
 
                 <div class="col-xl-3 col-md-6" style="height:500px;">
                     <div class="card-box" style="min-height:500px;">
@@ -1698,8 +1700,8 @@ CCC.convertValueToDisplay =  function(symbol,value,type,fullNumbers){
           var cell2 = row.insertCell(1);
           cell1.innerHTML = market;
           cell2.innerHTML = total;
-          if (length > 4){
-            table.deleteRow(4);
+          if (length > 6){
+            table.deleteRow(6);
           }
         }
       });
@@ -1816,7 +1818,10 @@ CCC.convertValueToDisplay =  function(symbol,value,type,fullNumbers){
     <script>
       var ctx = document.getElementById("myChart");
       var chartData = {
-        datasets: [{ data: []}],
+        datasets: [{ data: [],
+           backgroundColor: ["#337AB7", "#60C27B", "#F69219","#FF6666","#A11B0A"],
+            borderColor: "transparent"
+       }],
         labels: []
       }
       
