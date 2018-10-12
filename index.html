@@ -2,17 +2,76 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>CryptoCompare Desktop App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+  <body ng-app="ccc-app" style="background-color: black;">
+    <div ng-controller="DataController" class="container-fluid">
+      <div class="col-3">
+        <div class="card text-white bg-dark">
+          <div class="card-header">Latest CryptoNews</div>
+          <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
+
+      <div class="card text-white bg-dark">
+        <div class="card-header">Order Book</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Primary card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      angular.module("ccc-app", [])
+      .controller("DataController", ["$scope", "$http", function($scope, $http) {
+
+        var getPriceData = function(){
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                console.log(JSON.parse(xhttp.responseText));
+              }
+          };
+          xhttp.open("GET", "https://min-api.cryptocompare.com/data/v2/news/?lang=EN", true);
+          xhttp.send();
+        }
+        getPriceData();
+      }]);
+
+    </script>
+    <script>
+      var ctx = document.getElementById("myChart");
+      var data = {
+        datasets: [{
+            data: [10, 20, 30]
+        }]
+      }
+
+      var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+      })
+      
+    
+    </script>
 
     <script>
-      // You can also require other files to run in this process
+      // You can also require other files to run in this process style="background-color: #111417"
       require('./renderer.js')
     </script>
   </body>
