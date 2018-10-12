@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body ng-app="ccc-app" ng-controller="DataController" style="background-color: black;">
+  <body ng-app="ccc-app" ng-controller="DataController" style="background-color: black;" >
     <header id="topnav">
       <div class="topbar-main">
         <div class="container-fluid">
@@ -127,7 +127,7 @@
         </div> <!-- end navbar-custom -->
     </header>
 
-    <div class="wrapper" >
+    <div class="wrapper" style="padding-bottom:300px;">
         <div class="container-fluid">
             <!-- Page-Title -->
             <div class="row">
@@ -236,76 +236,35 @@
 
                
 
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-box">
-                        <div class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                            </div>
-                        </div>
-
-                        <h4 class="header-title mt-0 m-b-30">Total Revenue</h4>
-
+                <div class="col-xl-3 col-md-6" >
+                    <div class="card-box" style="height:500px;">
+                        <h4 class="header-title mt-0 m-b-30">Live BTC/USD Trades</h4>
                         <div class="widget-chart-1">
-                            <div class="widget-chart-box-1">
-                                <div style="display:inline;width:80px;height:80px;"><canvas width="80" height="80"></canvas><input data-plugin="knob" data-width="80" data-height="80" data-fgcolor="#f05050 " data-bgcolor="#F9B9B9" value="58" data-skin="tron" data-angleoffset="180" data-readonly="true" data-thickness=".15" readonly="readonly" style="width: 44px; height: 26px; position: absolute; vertical-align: middle; margin-top: 26px; margin-left: -62px; border: 0px; background: none; font: bold 16px Arial; text-align: center; color: rgb(240, 80, 80); padding: 0px; -webkit-appearance: none;"></div>
-                            </div>
-
-                            <div class="widget-detail-1">
-                                <h2 class="p-t-10 mb-0"> 256 </h2>
-                                <p class="text-muted m-b-10">Revenue today</p>
-                            </div>
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>Market</th>
+                                    <th>Total</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="trades" >
+                                </tbody>
+                              </table>
                         </div>
                     </div>
                 </div><!-- end col -->
 
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-box">
-                        <div class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                            </div>
-                        </div>
-
-                        <h4 class="header-title mt-0 m-b-30">Sales Analytics</h4>
-
+                <div class="col-xl-3 col-md-6" style="height:500px;">
+                  <div class="card-box" style="height:500px;">
+                        <h4 class="header-title mt-0 m-b-30">Volume Over Time (BTC/USD)</h4>
                         <div class="widget-box-2">
-                            <div class="widget-detail-2">
-                                <span class="badge badge-success badge-pill pull-left m-t-20">32% <i class="mdi mdi-trending-up"></i> </span>
-                                <h2 class="mb-0"> 8451 </h2>
-                                <p class="text-muted m-b-25">Revenue today</p>
-                            </div>
-                            <div class="progress progress-bar-success-alt progress-sm mb-0">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%;">
-                                    <span class="sr-only">77% Complete</span>
-                                </div>
-                            </div>
+                          <canvas id="volumechart" width="300" height="300" style="display:block; color:white;"></canvas>
                         </div>
                     </div>
-                </div><!-- end col -->
+                </div>
 
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-box">
+                <div class="col-xl-3 col-md-6" style="height:500px;">
+                    <div class="card-box" style="min-height:500px;">
                         <h4 class="header-title mt-0 m-b-30">Price 24hr BTC/USD </h4>
                         <div class="widget-box-2">
                           <canvas id="myCharthour" width="350" height="350"></canvas>
@@ -313,8 +272,8 @@
                     </div>
                 </div><!-- end col -->
 
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-box">
+                <div class="col-xl-3 col-md-6" style="height:500px;">
+                    <div class="card-box" style="height:500px;">
                         <h4 class="header-title mt-0 m-b-30">Exchange volume by BTC/USD</h4>
                         <div class="widget-box-2">
                           <canvas id="myChart" width="350" height="350"></canvas>
@@ -641,10 +600,11 @@
           },
           options: {
             responsive: true,
-            title: {
-              display: true,
-              text: "Volume over time"
-            }
+			legend: {
+				labels: {
+					fontColor: "white"
+				}
+			}
           }
         }
         
@@ -1701,26 +1661,47 @@ CCC.convertValueToDisplay =  function(symbol,value,type,fullNumbers){
     
     <script>
       var socket = io.connect('https://streamer.cryptocompare.com/');
-      var subscription = ['5~CCCAGG~BTC~USD', '5~CCCAGG~ETH~USD', '5~CCCAGG~XMR~USD', '5~CCCAGG~XRP~USD'];
+      var subscription = ['5~CCCAGG~BTC~USD', '5~CCCAGG~ETH~USD', '5~CCCAGG~XMR~USD', '5~CCCAGG~XRP~USD',"0~Cryptsy~BTC~USD",
+                                "0~OKCoin~BTC~USD",
+                                "0~Coinbase~BTC~USD",
+                                "0~BTCE~BTC~USD",
+                                "0~BitTrex~BTC~USD",
+                                "0~Bitfinex~BTC~USD",
+                                "0~Coinsbit~BTC~USD"];
       socket.emit('SubAdd', { subs: subscription });
       socket.on("m", function(message) {
         var messageType = message.substring(0, message.indexOf("~"));
         var res = {};
-        res = CCC.CURRENT.unpack(message);
-        var symbol = res["FROMSYMBOL"];
-        var price = res["PRICE"]
-        if(res["TYPE"] === "5"){
-          var currentCoin = document.getElementById(symbol);
-          if (price!==undefined && currentCoin !== undefined){
-            currentCoin.innerHTML = "$"+price;
-            currentCoin.style.color = "blue";
-            setTimeout(function(){
-              currentCoin.style.color = "white";
-            }, 1000)
+        if(messageType == "5"){
+          res = CCC.CURRENT.unpack(message);
+          var symbol = res["FROMSYMBOL"];
+          var price = res["PRICE"]
+          if(res["TYPE"] === "5"){
+            var currentCoin = document.getElementById(symbol);
+            if (price!==undefined && currentCoin !== undefined){
+              currentCoin.innerHTML = "$"+price;
+              currentCoin.style.color = "blue";
+              setTimeout(function(){
+                currentCoin.style.color = "white";
+              }, 1000)
+            }
           }
-        
+        } if(messageType == "0"){
+          var maxTableSize = 5;
+          var incomingTrade = CCC.TRADE.unpack(message);
+          var market = incomingTrade.M;
+          var total = incomingTrade.TOTAL;
+          var table = document.getElementById("trades");
+          var length = table.rows.length;;
+          var row = table.insertRow(0);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          cell1.innerHTML = market;
+          cell2.innerHTML = total;
+          if (length > 4){
+            table.deleteRow(4);
+          }
         }
-        
       });
       var getPriceData = function(){
         var xhttp = new XMLHttpRequest();
@@ -1737,6 +1718,14 @@ CCC.convertValueToDisplay =  function(symbol,value,type,fullNumbers){
         xhttp.send();
       }
       getPriceData();
+    </script>
+    <script>
+        socket.on('m', function(currentData) {
+          var tradeField = currentData.substr(0, currentData.indexOf("~"));
+          if (tradeField == CCC.STATIC.TYPE.TRADE) {
+            //console.log(currentData);
+          }
+        });
     </script>
 
 <script>
