@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body ng-app="ccc-app" style="background-color: black;">
+  <body ng-app="ccc-app" ng-controller="DataController" style="background-color: black;">
     <header id="topnav">
       <div class="topbar-main">
         <div class="container-fluid">
@@ -126,8 +126,7 @@
         </div> <!-- end navbar-custom -->
     </header>
 
-    <div class="wrapper" ng-controller="DataController">
-
+    <div class="wrapper" >
         <div class="container-fluid">
             <!-- Page-Title -->
             <div class="row">
@@ -137,10 +136,10 @@
             </div>
             <!-- end page title end breadcrumb -->
 
-
+            
             <div class="row">
-                
-                <div class="col-xl-4">
+                <!---   put block expoloere data here -->
+                <div class="col-xl-6">
                     <div class="card-box">
                         <div class="dropdown pull-right">
                             <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
@@ -158,53 +157,25 @@
                             </div>
                         </div>
     
-                        <h4 class="header-title mt-0 m-b-30">Latest News</h4>
+                        <h4 class="header-title mt-0 m-b-30">{{ title }}</h4>
                         <div class="inbox-widget nicescroll" style="height: 315px;">
-                            <a href="#">
+                            <tbody id="news">
+
+                            </tbody>
+                            <a href="#" ng-repeat="(key, newsObj) in newsArticlesFromApi">
+                              <h1>ssds</h1>
                                 <div class="inbox-item">
                                     <div class="inbox-item-img"><img src="assets/images/users/avatar-1.jpg" class="rounded-circle" alt=""></div>
-                                    <p class="inbox-item-author">Chadengle</p>
-                                    <p class="inbox-item-text">Hey! there I'm available...</p>
+                                    <p class="inbox-item-author">{{newsObj.title}}</p>
+                                    <p class="inbox-item-text">{{newsObj.body}}</p>
                                     <p class="inbox-item-date">13:40 PM</p>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-2.jpg" class="rounded-circle" alt=""></div>
-                                    <p class="inbox-item-author">Tomaslau</p>
-                                    <p class="inbox-item-text">I've finished it! See you so...</p>
-                                    <p class="inbox-item-date">13:34 PM</p>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-3.jpg" class="rounded-circle" alt=""></div>
-                                    <p class="inbox-item-author">Stillnotdavid</p>
-                                    <p class="inbox-item-text">This theme is awesome!</p>
-                                    <p class="inbox-item-date">13:17 PM</p>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-4.jpg" class="rounded-circle" alt=""></div>
-                                    <p class="inbox-item-author">Kurafire</p>
-                                    <p class="inbox-item-text">Nice to meet you</p>
-                                    <p class="inbox-item-date">12:20 PM</p>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="inbox-item">
-                                    <div class="inbox-item-img"><img src="assets/images/users/avatar-5.jpg" class="rounded-circle" alt=""></div>
-                                    <p class="inbox-item-author">Shahedk</p>
-                                    <p class="inbox-item-text">Hey! there I'm available...</p>
-                                    <p class="inbox-item-date">10:15 AM</p>
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div><!-- end col -->
     
-                <div class="col-xl-8">
+                <div class="col-xl-6">
                     <div class="card-box">
                         <div class="dropdown pull-right">
                             <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
@@ -294,6 +265,53 @@
                     </div>
                 </div><!-- end col -->
                 
+                
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div>
+                            <img src="https://www.cryptocompare.com/media/19633/btc.png?width=200" class="img-responsive rounded-circle" alt="user">
+                            <div class="wid-u-info">
+                                <h1 class="font-23" id="BTC">$6,450</h1>
+                                <h5 class="mt-0 m-b-5">Bitcoin (BTC)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div>
+                            <img src="https://www.cryptocompare.com/media/20646/eth_logo.png?width=200" class="img-responsive rounded-circle" alt="user">
+                            <div class="wid-u-info">
+                                <h1 class="font-23" id="ETH">$6,450</h1>
+                                <h5 class="mt-0 m-b-5">Ethereum (ETH)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div>
+                            <img src="https://www.cryptocompare.com/media/34477776/xrp.png?width=200" class="img-responsive rounded-circle" alt="user">
+                            <div class="wid-u-info">
+                                <h1 class="font-23" id="XRP">$6,450</h1>
+                                <h5 class="mt-0 m-b-5">Ripple (XRP)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div>
+                            <img src="https://www.cryptocompare.com/media/19969/xmr.png?width=200" class="img-responsive rounded-circle" alt="user">
+                            <div class="wid-u-info">
+                                <h1 class="font-23" id="XMR">$6,450</h1>
+                                <h5 class="mt-0 m-b-5">Monero (XMR)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
 
                 <div class="col-xl-3 col-md-6">
                     <div class="card-box">
@@ -490,61 +508,7 @@
             <!-- end row -->
 
 
-            <div class="row">
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-box widget-user">
-                        <div>
-                            <img src="assets/images/users/avatar-3.jpg" class="img-responsive rounded-circle" alt="user">
-                            <div class="wid-u-info">
-                                <h5 class="mt-0 m-b-5">Chadengle</h5>
-                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                                <small class="text-warning"><b>Admin</b></small>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end col -->
-
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-box widget-user">
-                        <div>
-                            <img src="assets/images/users/avatar-2.jpg" class="img-responsive rounded-circle" alt="user">
-                            <div class="wid-u-info">
-                                <h5 class="mt-0 m-b-5"> Michael Zenaty</h5>
-                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                                <small class="text-custom"><b>Support Lead</b></small>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end col -->
-
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-box widget-user">
-                        <div>
-                            <img src="assets/images/users/avatar-1.jpg" class="img-responsive rounded-circle" alt="user">
-                            <div class="wid-u-info">
-                                <h5 class="mt-0 m-b-5">Stillnotdavid</h5>
-                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                                <small class="text-success"><b>Designer</b></small>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end col -->
-
-                <div class="col-xl-3 col-md-6">
-                    <div class="card-box widget-user">
-                        <div>
-                            <img src="assets/images/users/avatar-10.jpg" class="img-responsive rounded-circle" alt="user">
-                            <div class="wid-u-info">
-                                <h5 class="mt-0 m-b-5">Tomaslau</h5>
-                                <p class="text-muted m-b-5 font-13">coderthemes@gmail.com</p>
-                                <small class="text-info"><b>Developer</b></small>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- end col -->
-            </div>
-            <!-- end row -->
-
+          
         </div> <!-- end container -->
 
 
@@ -623,12 +587,46 @@
         <!-- /Right-bar -->
 
     </div>
+    
+    <script>
+      var getPriceData = function(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var data = JSON.parse(xhttp.responseText);
+              for(var coin in data){
+                var currentCoin = document.getElementById(coin);
+                current.innerHtml = data[coin]
+
+              }
+            }
+        };
+        xhttp.open("GET", "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,XRP,XMR,ETH&tsyms=USD", true);
+        xhttp.send();
+      }
+      getPriceData();
+    </script>
+
 
     <script>
       angular.module("ccc-app", [])
       .controller("DataController", ["$scope", "$http", function($scope, $http) {
+        $scope.title = "Latest News";
+        $scope.newsArticlesFromApi = [];
+        $scope.getNewsArticles = function(){
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                var newsArticlesFromApi = JSON.parse(xhttp.responseText);
+                newsArticlesFromApi = newsArticlesFromApi.Data.slice(0,5);
+                console.log($scope.newsArticlesFromApi)
+              }
+          };
+          xhttp.open("GET", "https://min-api.cryptocompare.com/data/v2/news/?lang=EN", true);
+          xhttp.send();
+        }
 
-        var getPriceData = function(){
+        /*var getPriceData = function(){
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
@@ -638,7 +636,8 @@
           xhttp.open("GET", "https://min-api.cryptocompare.com/data/v2/news/?lang=EN", true);
           xhttp.send();
         }
-        getPriceData();
+        getNewsArticles();*/
+        $scope.getNewsArticles();
       }]);
 
     </script>
@@ -648,6 +647,7 @@
         datasets: [{ data: []}],
         labels: []
       }
+      
 
       var getPriceData = function(){
         var xhttp = new XMLHttpRequest();
@@ -660,7 +660,6 @@
                 chartData.labels.push(dataArray[i].exchange);
               }
             }
-            console.log(chartData);
             buildchart(chartData);
           };
           xhttp.open("GET", "https://min-api.cryptocompare.com/data/top/exchanges?fsym=BTC&tsym=USD", true);
